@@ -1,302 +1,164 @@
-@charset "UTF-8";
-/*------------------------------------------------------------------------
-File : style.css
-Author : 정시안
-Create date : 2024-04-24
-Version : 1.0
-Editable : O
-※ 메인 화면 관련 스타일 정의
-------------------------------------------------------------------------*/
-
-/* MAIN VISUAL ----------------------------------------------- */
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-@keyframes scrollIcon {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(15%);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-@keyframes countingBar {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 100%;
-    }
-}
-@keyframes quickMenuOff {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0);
-    }
-}
-
-main {
+/* intro 영역 ------------------------------------------------ */
+.intro {
     position: relative;
+    height: 100vh;
 }
-
-#mainVisual {
-    position: relative;
+.mv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     width: 100%;
-    /* 슬라이드 */
-    .mv-slider {
-        position: relative;
-        height: 100vh;
-        .swiper-wrapper {
-            position: relative;
-            padding-top: 4rem;
-            box-sizing: border-box;
-            li.swiper-slide {
-                display: flex;
-                align-items: center;
-                position: relative;
-                .inner {
-                    position: absolute;
-                    top: 50%;
-                    width: 100%;
-                    transform: translateY(-50%);
-                    .txt__box {
-                        width: 65%;
-                        margin: 0 auto;
-                        text-align: right;
-                        span {
-                            display: inline-block;
-                            padding-bottom: 3.5rem;
-                            font-family: var(--e-ff1);
-                            font-size: 1.8rem;
-                            line-height: 1;
-                            text-align: right;
-                            color: rgba(255, 255, 255, 0.6);
-                        }
-                        i.rotate_txt {
-                            display: inline-block;
-                            position: absolute;
-                            width: 12.2rem;
-                            height: 12.2rem;
-                            margin-top: -5rem;
-                            margin-left: -8.5rem;
-                            animation: rotate 8s infinite linear;
-                            background-image: url('../images/main/rotate_txt.png');
-                        }
-                        p {
-                            font-family: 'S-Core Dream';
-                            font-size: 4rem;
-                            line-height: 6rem;
-                            color: #fff;
-                        }
-
-                        strong {
-                            font-weight: 600;
-                        }
-                    }
-                }
-                .mv__bg {
-                    width: 100%;
-                    height: 100%;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: cover;
-                }
-                .mv01 {
-                    background-image: url('../images/main/mv01.jpg');
-                }
-                .mv02 {
-                    background-image: url('../images/main/mv02.jpg');
-                }
-                .mv03 {
-                    background-image: url('../images/main/mv03.jpg');
-                }
-            }
+    height: 100%;
+    .verti-txt {
+        position: absolute;
+        left: 0;
+        font-size: 1.7rem;
+        font-weight: 600;
+        transform: rotate(90deg);
+    }
+    .mv--img {
+        display: flex;
+        justify-content: center;
+        svg {
+            width: 10.7rem;
         }
+    }
+    .slogan__txt {
+        font-family: var(--k-ff2);
+        font-size: 8rem;
+    }
+}
+@keyframes flow-txt {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+.flow-txt {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    background-color: #000;
+    div {
+        display: flex;
+        overflow: hidden;
+        position: absolute;
+        width: 200%;
+        animation: flow-txt 18s linear infinite;
+    }
+    span {
+        width: 50rem !important;
+        font-family: var(--e-ff1);
+        font-size: 2rem;
+        line-height: 6rem;
+        color: #fff;
+    }
+}
 
-        /* 슬라이드 타이틀 */
-        .slide-tit {
-            position: absolute;
-            bottom: 20%;
-            z-index: 1;
-            width: 100%;
-            box-sizing: border-box;
-            .slide-tit__wrapper {
-                display: flex;
-                justify-content: flex-end;
-                width: 65%;
-                margin: 0 auto;
-                li {
-                    position: relative;
-                    width: 120px;
-                    height: 3px;
-                    // display: flex;
-                    // flex: 1 1 0;
-                    // justify-content: center;
-                    // align-items: center;
-                    border-radius: 0;
-                    background: rgba(255, 255, 255, 0.3);
-                    font-family: 'Montserrat';
-                    font-size: 14px;
-                    letter-spacing: -0.025em;
-                    color: rgb(255, 255, 255);
-                    opacity: 1;
-                    &.swiper-pagination-bullet-active {
-                        width: 120px;
-                        height: 3px;
-                        background: #fff;
-                        .bar {
-                            animation-name: countingBar;
-                            animation-duration: 3s;
-                            animation-timing-function: linear;
-                            animation-fill-mode: forwards;
-                        }
-                    }
-                    span.tit {
-                        position: absolute;
-                        top: -30px;
-                    }
-                    .bar {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 0;
-                        height: 3px;
-                        background: var(--primary);
-                    }
-                }
-            }
+/* intro 영역 // --------------------------------------------- */
+section:not(:first-child) {
+    position: relative;
+    font-size: 10rem;
+}
+/* about 영역 ------------------------------------------------ */
+.about01 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    background: url('../images/main/grid_bg.jpg') repeat;
+}
+.about01__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.about01-txt {
+    display: flex;
+    align-items: center;
+    p {
+        font-family: var(--k-ff2);
+        font-size: 4rem;
+        color: #fff600;
+    }
+}
+.code-c-01 {
+    color: #00ff5a;
+}
+.code-c-02 {
+    color: #ffa200;
+}
+.code-c-03 {
+    color: #ff4359;
+}
+.code-c-04 {
+    color: #fe3fee;
+}
+.code-c-05 {
+    color: #fff;
+}
+.about01-img {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 87.8rem;
+    height: 70.1rem;
+    .inner {
+        display: flex;
+        position: absolute;
+        top: 0;
+        width: 77.2rem;
+        height: 45.3rem;
+        margin-top: 1.6rem;
+        margin-left: 1.6rem;
+        border: 1px solid red;
+        border-radius: 1.8rem 1.8rem 0 0;
+        & > img {
+            border: 1px solid red;
         }
-
-        /* 슬라이드 버튼, 페이지 번호 */
-        .control {
-            position: absolute;
-            top: 0;
-            top: 50%;
-            z-index: 1;
-            width: 100%;
-            margin: 0 auto;
-            .control__wrapper {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                width: 65%;
-                margin: 0 auto;
-                padding-top: 15rem;
-                .control__inner {
+    }
+    .list__wrap {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 6rem;
+        align-items: center;
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+            li {
+                a {
                     display: flex;
                     align-items: center;
-                    width: 6rem;
-                    margin: 0 3rem;
+                    gap: 2rem;
                 }
-            }
+                span {
+                    font-size: 2.3rem;
+                    color: #fff;
+                    font-family: var(--k-ff2);
 
-            .btn {
-                display: flex;
-                align-items: center;
-                width: 32px;
-                height: 12px;
-                color: #fff;
-                cursor: pointer;
-                &::after {
-                    width: 32px;
-                    height: 12px;
-                    content: '';
                 }
-                &.btn--prev::after {
-                    background-image: url('../images/main/mv_prev.png');
-                }
-                &.btn--next::after {
-                    background-image: url('../images/main/mv_next.png');
-                }
-            }
-            .num {
-                width: 6rem;
-                font-family: 'Montserrat';
-                font-size: 14px;
-                font-weight: 300;
-                letter-spacing: -0.025em;
-                color: #fff;
-                strong {
-                    font-weight: 700;
-                }
-            }
-            .playNext__wrapper {
-                display: inline-block;
-                display: flex;
-                align-items: center;
-                height: 11px;
-                padding-top: 2px;
             }
         }
     }
-
-    .btn--play {
-        display: none;
-    }
-
-    .scroll {
+    .character--img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: absolute;
-        right: 50%;
-        bottom: 5rem;
-        z-index: 1;
-        font-family: 'Montserrat';
-        font-size: 1rem;
-        font-weight: 600;
-        color: #fff;
-        transform: translateX(50%);
-        i.scroll--i {
-            display: block;
-            width: 1.2rem;
-            height: 5.3rem;
-            margin: 0 auto 1.7rem;
-            animation: scrollIcon 1s infinite linear;
-            background-image: url('../images/main/scroll_i.png');
-        }
-    }
-}
-
-// 반응형
-/* width(태블릿 1400px 기준) => xxl */
-@media (max-width: 1600px) {
-    #mainVisual .txt__box {
-        border: 1px solid red;
-    }
-    .quick-menu__wrap {
-        border: 10px solid blue;
-        .quick-menu--off {
-            img {
-                position: absolute;
-                top: 50%;
-                right: 0;
-                width: 100px;
-                height: 201px;
-                transform: translateY(-50%);
-                z-index: 10;
-            }
-        }
-        .quick-menu--on {
-            img {
-                width: 270px;
-                height: 540px;
-            }
-        }
-    }
-}
-
-/* MAIN VISUAL // -------------------------------------------- */
-.main__contents {
-    width: 100%;
-    img {
         width: 100%;
+        height: 100%;
     }
 }
+
+/* about 영역 // --------------------------------------------- */
