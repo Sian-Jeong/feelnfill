@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'DungGeunMo';
+    font-style: normal;
+    font-weight: 500;
+    font-display: block;
+    src: url('DungGeunMo/DungGeunMo.eot');
+    src: url('DungGeunMo/DungGeunMo.eot?#iefix') format('embedded-opentype'),
+         url('DungGeunMo/DungGeunMo.woff2') format('woff2'),
+         url('DungGeunMo/DungGeunMo.woff') format('woff');
+}

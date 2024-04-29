@@ -1,0 +1,284 @@
+@charset "UTF-8";
+/*------------------------------------------------------------------------
+File : style.css
+Author : 정시안
+Create date : 2024-04-24
+Version : 1.0
+Editable : O
+※ 메인 화면 관련 스타일 정의
+------------------------------------------------------------------------*/
+/* MAIN VISUAL ----------------------------------------------- */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scrollIcon {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes countingBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes quickMenuOff {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+main {
+  position: relative;
+}
+
+#mainVisual {
+  position: relative;
+  width: 100%;
+  /* 슬라이드 */
+}
+#mainVisual .mv-slider {
+  position: relative;
+  height: 100vh;
+  /* 슬라이드 타이틀 */
+  /* 슬라이드 버튼, 페이지 번호 */
+}
+#mainVisual .mv-slider .swiper-wrapper {
+  position: relative;
+  padding-top: 4rem;
+  box-sizing: border-box;
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .inner {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .inner .txt__box {
+  width: 65%;
+  margin: 0 auto;
+  text-align: right;
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .inner .txt__box span {
+  display: inline-block;
+  padding-bottom: 3.5rem;
+  font-family: var(--e-ff1);
+  font-size: 1.8rem;
+  line-height: 1;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.6);
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .inner .txt__box i.rotate_txt {
+  display: inline-block;
+  position: absolute;
+  width: 12.2rem;
+  height: 12.2rem;
+  margin-top: -5rem;
+  margin-left: -8.5rem;
+  animation: rotate 8s infinite linear;
+  background-image: url("../images/main/rotate_txt.png");
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .inner .txt__box p {
+  font-family: "S-Core Dream";
+  font-size: 4rem;
+  line-height: 6rem;
+  color: #fff;
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .inner .txt__box strong {
+  font-weight: 600;
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .mv__bg {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .mv01 {
+  background-image: url("../images/main/mv01.jpg");
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .mv02 {
+  background-image: url("../images/main/mv02.jpg");
+}
+#mainVisual .mv-slider .swiper-wrapper li.swiper-slide .mv03 {
+  background-image: url("../images/main/mv03.jpg");
+}
+#mainVisual .mv-slider .slide-tit {
+  position: absolute;
+  bottom: 20%;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+}
+#mainVisual .mv-slider .slide-tit .slide-tit__wrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 65%;
+  margin: 0 auto;
+}
+#mainVisual .mv-slider .slide-tit .slide-tit__wrapper li {
+  position: relative;
+  width: 120px;
+  height: 3px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.3);
+  font-family: "Montserrat";
+  font-size: 14px;
+  letter-spacing: -0.025em;
+  color: rgb(255, 255, 255);
+  opacity: 1;
+}
+#mainVisual .mv-slider .slide-tit .slide-tit__wrapper li.swiper-pagination-bullet-active {
+  width: 120px;
+  height: 3px;
+  background: #fff;
+}
+#mainVisual .mv-slider .slide-tit .slide-tit__wrapper li.swiper-pagination-bullet-active .bar {
+  animation-name: countingBar;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+#mainVisual .mv-slider .slide-tit .slide-tit__wrapper li span.tit {
+  position: absolute;
+  top: -30px;
+}
+#mainVisual .mv-slider .slide-tit .slide-tit__wrapper li .bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--primary);
+}
+#mainVisual .mv-slider .control {
+  position: absolute;
+  top: 0;
+  top: 50%;
+  z-index: 1;
+  width: 100%;
+  margin: 0 auto;
+}
+#mainVisual .mv-slider .control .control__wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 65%;
+  margin: 0 auto;
+  padding-top: 15rem;
+}
+#mainVisual .mv-slider .control .control__wrapper .control__inner {
+  display: flex;
+  align-items: center;
+  width: 6rem;
+  margin: 0 3rem;
+}
+#mainVisual .mv-slider .control .btn {
+  display: flex;
+  align-items: center;
+  width: 32px;
+  height: 12px;
+  color: #fff;
+  cursor: pointer;
+}
+#mainVisual .mv-slider .control .btn::after {
+  width: 32px;
+  height: 12px;
+  content: "";
+}
+#mainVisual .mv-slider .control .btn.btn--prev::after {
+  background-image: url("../images/main/mv_prev.png");
+}
+#mainVisual .mv-slider .control .btn.btn--next::after {
+  background-image: url("../images/main/mv_next.png");
+}
+#mainVisual .mv-slider .control .num {
+  width: 6rem;
+  font-family: "Montserrat";
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  color: #fff;
+}
+#mainVisual .mv-slider .control .num strong {
+  font-weight: 700;
+}
+#mainVisual .mv-slider .control .playNext__wrapper {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  height: 11px;
+  padding-top: 2px;
+}
+#mainVisual .btn--play {
+  display: none;
+}
+#mainVisual .scroll {
+  position: absolute;
+  right: 50%;
+  bottom: 5rem;
+  z-index: 1;
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  transform: translateX(50%);
+}
+#mainVisual .scroll i.scroll--i {
+  display: block;
+  width: 1.2rem;
+  height: 5.3rem;
+  margin: 0 auto 1.7rem;
+  animation: scrollIcon 1s infinite linear;
+  background-image: url("../images/main/scroll_i.png");
+}
+
+/* width(태블릿 1400px 기준) => xxl */
+@media (max-width: 1600px) {
+  #mainVisual .txt__box {
+    border: 1px solid red;
+  }
+  .quick-menu__wrap {
+    border: 10px solid blue;
+  }
+  .quick-menu__wrap .quick-menu--off img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 100px;
+    height: 201px;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  .quick-menu__wrap .quick-menu--on img {
+    width: 270px;
+    height: 540px;
+  }
+}
+/* MAIN VISUAL // -------------------------------------------- */
+.main__contents {
+  width: 100%;
+}
+.main__contents img {
+  width: 100%;
+}

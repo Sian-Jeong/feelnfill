@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- ( < IE10 ) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no, address=no, email=no" />
+    <!-- Meta Information -->
+    <meta name="title" content="사이트 이름" />
+    <meta name="keywords" content="사이트 이름" />
+    <meta name="author" content="jointree" />
+    <meta name="description" content="사이트 설명" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="사이트 이름" />
+    <meta property="og:title" content="페이지 제목" />
+    <meta property="og:description" content="사이트 설명" />
+    <meta property="og:image" content="사이트 대표 이미지 경로" />
+    <meta property="og:url" content="사이트 주소" />
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="사이트 이름" />
+    <meta property="twitter:title" content="페이지 제목" />
+    <meta property="twitter:description" content="사이트 설명" />
+    <meta property="twitter:image" content="사이트 대표 이미지 경로" />
+    <meta property="twitter:url" content="사이트 주소" />
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="" />
+    <link rel="icon" type="image/png" sizes="196x196" href="" />
+    <title>기본 스타일 가이드</title>
+    <!-- CSS 연결 -->
+    <link rel="stylesheet" href="./assets/css/basic.css" />
+    <link rel="stylesheet" href="./assets/css/module.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <!-- JS 연결 -->
+    <script>
+      TablesawConfig = {
+        getColumnToggleLabelTemplate: function (text) {
+          return "<label><input type='checkbox' checked><span>" + text + "</span></label>";
+        },
+      };
+    </script>
+    <script src="./assets/js/libs/jquery.min.js"></script>
+    <script src="./assets/js/libs/tablesaw.js"></script>
+    <script src="./assets/js/libs/tablesaw-init.js"></script>
+  </head>
+
+  <body>
+    <!-- wrap -->
+    <div id="container">
+      <!-- 게시판 : Q&A -->
+      <div class="guide table-qna">
+        <h3>공지사항(반응형 적용)</h3>
+        <table class="table-common qna_type_a" summary="공지사항의 번호, 제목, 이름, 작성일, 상태">
+          <caption>
+            공지사항
+          </caption>
+          <colgroup>
+            <col width="8%" />
+            <col width="*%;" />
+            <col width="12%;" />
+            <col width="10%;" />
+            <col width="15%;" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th scope="col">번호</th>
+              <th scope="col">제목</th>
+              <th scope="col">이름</th>
+              <th scope="col">작성일</th>
+              <th scope="col">상태</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- end 상단 출력인 경우 사용  -->
+            <tr>
+              <td data-label="번호">1</td>
+              <td class="tl" data-label="제목">
+                <a href="javascript:void(0);">제목 노출 입니다. 제목 노출 입니다.제목 노출 입니다.제목 노출 입니다. <i class="xi-lock-o"></i></a>
+              </td>
+              <td data-label="이름">홍*동</td>
+              <td data-label="작성일">2018.04.25</td>
+              <td data-label="상태"><span class="answer off">답변대기</span></td>
+            </tr>
+            <tr>
+              <td data-label="번호">1</td>
+              <td class="tl" data-label="제목">
+                <a href="javascript:void(0);">제목 노출 입니다. 제목 노출 입니다.제목 노출 입니다.제목 노출 입니다. <i class="xi-lock-o"></i></a>
+              </td>
+              <td data-label="이름">홍*동</td>
+              <td data-label="작성일">2018.04.25</td>
+              <td><span class="answer on">답변완료</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 게시판 : Q&A // -->
+
+      <!-- 표 : basic-01(일반형) -->
+      <div class="guide">
+        <h3>표 : basic-01(일반형)</h3>
+        <table class="table-common basic-01" summary="table-type-01의 CSS, 반응형 디자인, 레이아웃">
+          <caption>
+            table-type-01
+          </caption>
+          <colgroup>
+            <col width="20%" />
+            <col width="*%;" />
+          </colgroup>
+          <tr>
+            <th scope="row" data-label="CSS">CSS</th>
+            <td>Cascading Style Sheets(CSS, 캐스케이딩 스타일 시트, 스타일 시트)란... 생략</td>
+          </tr>
+          <tr>
+            <th scope="row">반응형 디자인</th>
+            <td>반응형 디자인(Responsive Web Design)이란... 생략</td>
+          </tr>
+          <tr>
+            <th scope="row">레이아웃</th>
+            <td>반응형 디자인(Responsive Web Design)이란... 생략</td>
+          </tr>
+        </table>
+      </div>
+      <!-- 표 : basic-01(일반형) // -->
+
+      <!-- 표 : basic-02(일반형) -->
+      <div class="guide">
+        <h3>표 : basic-02(일반형)</h3>
+        <table class="table-common basic-02 clr">
+          <thead>
+            <tr>
+              <th scope="col">Movie Title</th>
+              <th scope="col">Rank</th>
+              <th scope="col">Year</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Gross</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="title">
+                <strong>Movie Title</strong>
+                <span>Avatar</span>
+              </td>
+              <td>
+                <strong>Rank</strong>
+                <span>1</span>
+              </td>
+              <td>
+                <strong>Year</strong>
+                <span>2009</span>
+              </td>
+              <td>
+                <strong> <abbr title="Rotten Tomato Rating">Rating</abbr></strong>
+                <span>83%</span>
+              </td>
+              <td>
+                <strong>Gross</strong>
+                <span>$2.7B</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="title">
+                <strong>Movie Title</strong>
+                <span>Avatar</span>
+              </td>
+              <td>
+                <strong>Rank</strong>
+                <span>1</span>
+              </td>
+              <td>
+                <strong>Year</strong>
+                <span>2009</span>
+              </td>
+              <td>
+                <strong> <abbr title="Rotten Tomato Rating">Rating</abbr></strong>
+                <span>83%</span>
+              </td>
+              <td>
+                <strong>Gross</strong>
+                <span>$2.7B</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 표 : basic-02(일반형) // -->
+
+      <!-- 표 :  scroll-x-01(가로형 - th col 고정) -->
+      <div class="guide">
+        <div class="table-scroll">
+          <h3>표: scroll-x-01(가로 스크롤 처리 - 고정X)</h3>
+          <table class="table-common scroll-x-01" cellspacing="0" cellpadding="0">
+            <caption>
+              캡션
+            </caption>
+            <colgroup>
+              <col width="20%" />
+              <col width="*%;" />
+            </colgroup>
+            <tr>
+              <th>1월</th>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>4</td>
+              <td>5</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <th>2월</th>
+              <td>8</td>
+              <td>7</td>
+              <td>6</td>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>4</td>
+              <td>2</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <th>3월</th>
+              <td>5</td>
+              <td>4</td>
+              <td>3</td>
+              <td>2</td>
+              <td>1</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- 표 :  scroll-x-01(가로형 - th col 고정) -->
+
+      <!-- 표 : toggle-01 -->
+      <div class="guide">
+        <h3>표 : 토글버튼 형식</h3>
+        <table class="table-common tablesaw" data-tablesaw-mode="columntoggle">
+          <thead>
+            <tr>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Movie Title</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">Rank</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Year</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="0" colspan="2">Gross</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1"><abbr title="Rotten Tomato Rating">Rating</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="title">The Avengers</td>
+              <td>3</td>
+              <td>2012</td>
+              <td>$1.5B</td>
+              <td>$1.5B</td>
+              <td>92%</td>
+            </tr>
+            <tr>
+              <td class="title">The Avengers</td>
+              <td>3</td>
+              <td>2012</td>
+              <td>$1.5B</td>
+              <td>$1.5B</td>
+              <td>92%</td>
+            </tr>
+            <tr>
+              <td class="title">Harry Potter</td>
+              <td>4</td>
+              <td>2011</td>
+              <td>$1.3B</td>
+              <td>$1.3B</td>
+              <td>96%</td>
+            </tr>
+            <tr>
+              <td class="title">Frozen</td>
+              <td>5</td>
+              <td>2013</td>
+              <td>$1.2B</td>
+              <td>$1.2B</td>
+              <td>89%</td>
+            </tr>
+            <tr>
+              <td class="title">Iron Man 3</td>
+              <td>6</td>
+              <td>2013</td>
+              <td>$1.2B</td>
+              <td>$1.2B</td>
+              <td>78%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- 표 : toggle-01 // -->
+
+    <!-- wrap // -->
+  </body>
+</html>

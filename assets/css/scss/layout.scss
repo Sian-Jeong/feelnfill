@@ -1,0 +1,181 @@
+@charset "UTF-8";
+/*------------------------------------------------------------------------
+File : layout.css
+Author : 정시안
+Create date : 2024-04-24
+Version : 1.0
+Editable : O
+※ 공통으로 사용 되는 레이아웃 스타일 정의(common)
+------------------------------------------------------------------------*/
+/* 변수 설정 */
+@import 'module';
+/* 폰트 설정 */
+@import '../fonts/Pretendard.css';
+@import '../fonts/MavenPro.css';
+
+/* width(태블릿 1920px 기준) */
+@media (max-width: 1920px) {
+}
+/* width(태블릿 1400px 기준) => xxl */
+@media (max-width: 1400px) {
+}
+/* width(태블릿 1200px 기준) => xl */
+@media (max-width: 1200px) {
+}
+/* width(태블릿 1024px 기준) => lg */
+@media (max-width: 1024px) {
+}
+/* width(태블릿 768px 기준) => md */
+@media (max-width: 768px) {
+}
+/* width(모바일 576px 기준) => sm */
+@media (max-width: 576px) {
+}
+/* width(모바일 375px 기준) => xs */
+@media (max-width: 375px) {
+}
+/* width(모바일 최소 사이즈 320px 기준) => xxs */
+@media (max-width: 320px) {
+}
+html {
+    overflow: auto;
+}
+body {
+    overflow: visible;
+    font-family: 'Pretendard', 'MavenPro', san-serif;
+}
+#wrap {
+    overflow: hidden;
+    min-width: 144rem;
+    width: 100%;
+    height: 100%;
+}
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+} /* width(태블릿 1400px 기준) => xxl */
+@media (max-width: 1400px) {
+    .container {
+        padding: 0 5rem;
+    }
+} /* width(태블릿 1024px 기준) => lg */
+@media (max-width: 1024px) {
+    .container {
+        min-width: 320px;
+        padding: 0 3rem;
+    }
+}
+
+/* HEADER 영역 ----------------------------------------------- */
+header {
+    position: fixed;
+    width: 100%;
+    .header__wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 6rem;
+        padding: 0 5rem;
+    }
+}
+nav {
+    h1 {
+    }
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 7rem;
+        a {
+            font-family: var(--e-ff1);
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+    }
+}
+/* HEADER 영역 // -------------------------------------------- */
+
+/* aside 영역 ------------------------------------------------ */
+aside {
+    position: fixed;
+    right: 0;
+    bottom: 6rem;
+    margin-right: 5rem;
+    z-index: 999;
+    svg {
+        width: 7rem;
+    }
+}
+/* aside 영역 // --------------------------------------------- */
+
+/* intro 영역 ------------------------------------------------ */
+.intro {
+    position: relative;
+    height: 100vh;
+}
+.mv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .verti-txt {
+        position: absolute;
+        left: 0;
+        font-size: 1.7rem;
+        font-weight: 600;
+        transform: rotate(90deg);
+    }
+    .mv--img {
+        display: flex;
+        justify-content: center;
+        svg {
+            width: 10.7rem;
+        }
+    }
+    .slogan__txt {
+        font-family: var(--k-ff2);
+        font-size: 8rem;
+    }
+}
+@keyframes flow-txt {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
+}
+.flow-txt {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    background-color: #000;
+    div {
+        display: flex;
+        overflow: hidden;
+        position: absolute;
+        width: 200%;
+        animation: flow-txt 18s linear infinite;
+    }
+    span {
+        width: 50rem !important;
+        font-family: var(--e-ff1);
+        font-size: 2rem;
+        line-height: 6rem;
+        color: #fff;
+    }
+}
+
+/* intro 영역 // --------------------------------------------- */
+section:not(:first-child) {
+    position: relative;
+    font-size: 10rem;
+}
+
+/* about 영역 ------------------------------------------------ */
+
+/* about 영역 // --------------------------------------------- */

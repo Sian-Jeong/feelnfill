@@ -1,0 +1,207 @@
+@charset "UTF-8";
+/*------------------------------------------------------------------------
+File : module.css
+Author : 정시안
+Create date : 2024-04-24
+Version : 1.0
+Editable : O (변수 추가 시, 하단에 추가)
+※ CSS변수 선언(ex: 색상, 폰트, 크기)
+------------------------------------------------------------------------*/
+
+/* CSS변수 */
+:root {
+    /* [Color 설정] ------------------------------*/
+    --primary: #111;
+    --sub: #6664f4;
+    --point-01: #27ffab
+
+    /* background-color */
+    --bg-basic: ;
+    --bg-nav: ;
+    --bg-box: ;
+
+    /* font-color */
+    --fc-main: #2647b5;
+    --fc-sub: #03c4db;
+    --fc-basic: #8b90a7;
+    --fc-bold: #1e2029;
+    --fc-point1: #e3546a;
+
+    /* border-color */
+    --bd-basic: #e5e5e5;
+    --bd-form: ;
+
+    /* 자주 쓰는 색상 설정 */
+    --white: #fff;
+    --black: #000;
+    --gray1: #111;
+    --gray2: #222;
+    --gray3: #333;
+    --gray4: #444;
+    --gray5: #555;
+    --gray6: #666;
+    --gray7: #777;
+    --gray8: #888;
+    --gray9: #999;
+    /*------------------------------------------------*/
+
+    /* [font-family 설정] -----------------------------*/
+
+    /* 한글 종류 사용: font - 폰트명 */
+    --k-ff1: 'Pretendard';
+    --k-ff2: 'DungGeunMo';
+    /* 영문 종류 사용: font - 폰트명 */
+    --e-ff1: 'MavenPro';
+    --e-ff2: ;
+    /*------------------------------------------------*/
+
+    /* [Size 설정] -----------------------------------*/
+
+    /* 제목 요소 */
+    --fc-h1: ;
+    --fc-h2: ;
+    --fc-h3: ;
+    --fc-h4: ;
+    --fc-h5: ;
+    --fc-h6: ;
+
+    /* 본문 요소 */
+    --fs-lg: ;
+    --fs-m: ;
+    --fs-sm: 16px;
+    --fs-xsm: ;
+    /*------------------------------------------------*/
+}
+
+@mixin bg {
+    background: rgb(35,138,215);
+    background: linear-gradient(287deg, rgba(35,138,215,1) 0%, rgba(10,201,227,1) 100%);
+}
+
+// 스크린 리더 감지 , 화면 표출 제거
+@mixin blind {
+    overflow: hidden; 
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    margin: -1px; 
+    padding: 0; 
+    border: 0 none; 
+    clip: rect(0, 0, 0, 0);
+}
+
+// 컨텐츠 영역 정의
+@mixin inner {
+    width: 100%;
+    max-width: 144rem;
+    padding:0 2rem;
+    margin: 0 auto;
+}
+
+// 플렉스 - center
+@mixin flexCenter($x: center, $y: center, $d: row, $w: nowrap) {
+    display: flex;
+    justify-content: $x;
+    align-items: $y;
+    flex-direction: $d;
+    flex-wrap: $w;
+}
+
+// 아이콘
+@mixin icon($unicode, $style, $color) {
+    display: inline-block;
+    font-family: 'Font Awesome 6 Pro';
+    content: $unicode;
+    font-weight: $style;
+    color: $color;
+}
+
+// 말줄임
+@mixin ellipsis1 {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin ellipsis2 {
+    display: -webkit-box;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin ellipsis3 {
+    display: -webkit-box;
+    white-space: normal;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// 포지션 센터
+@mixin place {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+@mixin placeTop($poy:absolute) {
+    position: $poy;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@mixin placeLeft($poy:absolute) {
+    position: $poy;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// 백그라운드 이미지
+@mixin bgImage($url) {
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url($url);
+}
+
+// 쉐도우
+@mixin shadow {
+    box-shadow: 0 .8rem 1rem rgba(0,0,0,0.13);
+}
+
+@mixin shadow1($sdw) {
+    // x-position y-position blur spread color
+    box-shadow: 0 0 1rem 1rem rgba($sdw);
+}
+@mixin shadow2($sdw) {
+    // x-position y-position blur spread color
+    box-shadow: .5rem .5rem 2rem 2rem rgba($sdw);
+}
+
+// 반응형
+@mixin desktop {
+    @media (max-width: 1440px) {
+        @content;
+    }
+}
+@mixin laptop {
+    @media (max-width: 1240px) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media (max-width: 450px) {
+        @content;
+    }
+}

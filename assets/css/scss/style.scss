@@ -1,0 +1,302 @@
+@charset "UTF-8";
+/*------------------------------------------------------------------------
+File : style.css
+Author : 정시안
+Create date : 2024-04-24
+Version : 1.0
+Editable : O
+※ 메인 화면 관련 스타일 정의
+------------------------------------------------------------------------*/
+
+/* MAIN VISUAL ----------------------------------------------- */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes scrollIcon {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes countingBar {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+@keyframes quickMenuOff {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+main {
+    position: relative;
+}
+
+#mainVisual {
+    position: relative;
+    width: 100%;
+    /* 슬라이드 */
+    .mv-slider {
+        position: relative;
+        height: 100vh;
+        .swiper-wrapper {
+            position: relative;
+            padding-top: 4rem;
+            box-sizing: border-box;
+            li.swiper-slide {
+                display: flex;
+                align-items: center;
+                position: relative;
+                .inner {
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                    transform: translateY(-50%);
+                    .txt__box {
+                        width: 65%;
+                        margin: 0 auto;
+                        text-align: right;
+                        span {
+                            display: inline-block;
+                            padding-bottom: 3.5rem;
+                            font-family: var(--e-ff1);
+                            font-size: 1.8rem;
+                            line-height: 1;
+                            text-align: right;
+                            color: rgba(255, 255, 255, 0.6);
+                        }
+                        i.rotate_txt {
+                            display: inline-block;
+                            position: absolute;
+                            width: 12.2rem;
+                            height: 12.2rem;
+                            margin-top: -5rem;
+                            margin-left: -8.5rem;
+                            animation: rotate 8s infinite linear;
+                            background-image: url('../images/main/rotate_txt.png');
+                        }
+                        p {
+                            font-family: 'S-Core Dream';
+                            font-size: 4rem;
+                            line-height: 6rem;
+                            color: #fff;
+                        }
+
+                        strong {
+                            font-weight: 600;
+                        }
+                    }
+                }
+                .mv__bg {
+                    width: 100%;
+                    height: 100%;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                }
+                .mv01 {
+                    background-image: url('../images/main/mv01.jpg');
+                }
+                .mv02 {
+                    background-image: url('../images/main/mv02.jpg');
+                }
+                .mv03 {
+                    background-image: url('../images/main/mv03.jpg');
+                }
+            }
+        }
+
+        /* 슬라이드 타이틀 */
+        .slide-tit {
+            position: absolute;
+            bottom: 20%;
+            z-index: 1;
+            width: 100%;
+            box-sizing: border-box;
+            .slide-tit__wrapper {
+                display: flex;
+                justify-content: flex-end;
+                width: 65%;
+                margin: 0 auto;
+                li {
+                    position: relative;
+                    width: 120px;
+                    height: 3px;
+                    // display: flex;
+                    // flex: 1 1 0;
+                    // justify-content: center;
+                    // align-items: center;
+                    border-radius: 0;
+                    background: rgba(255, 255, 255, 0.3);
+                    font-family: 'Montserrat';
+                    font-size: 14px;
+                    letter-spacing: -0.025em;
+                    color: rgb(255, 255, 255);
+                    opacity: 1;
+                    &.swiper-pagination-bullet-active {
+                        width: 120px;
+                        height: 3px;
+                        background: #fff;
+                        .bar {
+                            animation-name: countingBar;
+                            animation-duration: 3s;
+                            animation-timing-function: linear;
+                            animation-fill-mode: forwards;
+                        }
+                    }
+                    span.tit {
+                        position: absolute;
+                        top: -30px;
+                    }
+                    .bar {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 0;
+                        height: 3px;
+                        background: var(--primary);
+                    }
+                }
+            }
+        }
+
+        /* 슬라이드 버튼, 페이지 번호 */
+        .control {
+            position: absolute;
+            top: 0;
+            top: 50%;
+            z-index: 1;
+            width: 100%;
+            margin: 0 auto;
+            .control__wrapper {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 65%;
+                margin: 0 auto;
+                padding-top: 15rem;
+                .control__inner {
+                    display: flex;
+                    align-items: center;
+                    width: 6rem;
+                    margin: 0 3rem;
+                }
+            }
+
+            .btn {
+                display: flex;
+                align-items: center;
+                width: 32px;
+                height: 12px;
+                color: #fff;
+                cursor: pointer;
+                &::after {
+                    width: 32px;
+                    height: 12px;
+                    content: '';
+                }
+                &.btn--prev::after {
+                    background-image: url('../images/main/mv_prev.png');
+                }
+                &.btn--next::after {
+                    background-image: url('../images/main/mv_next.png');
+                }
+            }
+            .num {
+                width: 6rem;
+                font-family: 'Montserrat';
+                font-size: 14px;
+                font-weight: 300;
+                letter-spacing: -0.025em;
+                color: #fff;
+                strong {
+                    font-weight: 700;
+                }
+            }
+            .playNext__wrapper {
+                display: inline-block;
+                display: flex;
+                align-items: center;
+                height: 11px;
+                padding-top: 2px;
+            }
+        }
+    }
+
+    .btn--play {
+        display: none;
+    }
+
+    .scroll {
+        position: absolute;
+        right: 50%;
+        bottom: 5rem;
+        z-index: 1;
+        font-family: 'Montserrat';
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        transform: translateX(50%);
+        i.scroll--i {
+            display: block;
+            width: 1.2rem;
+            height: 5.3rem;
+            margin: 0 auto 1.7rem;
+            animation: scrollIcon 1s infinite linear;
+            background-image: url('../images/main/scroll_i.png');
+        }
+    }
+}
+
+// 반응형
+/* width(태블릿 1400px 기준) => xxl */
+@media (max-width: 1600px) {
+    #mainVisual .txt__box {
+        border: 1px solid red;
+    }
+    .quick-menu__wrap {
+        border: 10px solid blue;
+        .quick-menu--off {
+            img {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 100px;
+                height: 201px;
+                transform: translateY(-50%);
+                z-index: 10;
+            }
+        }
+        .quick-menu--on {
+            img {
+                width: 270px;
+                height: 540px;
+            }
+        }
+    }
+}
+
+/* MAIN VISUAL // -------------------------------------------- */
+.main__contents {
+    width: 100%;
+    img {
+        width: 100%;
+    }
+}
