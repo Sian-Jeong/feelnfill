@@ -67,14 +67,13 @@ section:not(:first-child) {
     font-size: 10rem;
 }
 /* about 영역 ------------------------------------------------ */
-.about01 {
+.about {
     display: flex;
     justify-content: center;
     position: relative;
     height: 100vh;
-    background: url('../images/main/grid_bg.jpg') repeat;
 }
-.about01__wrap {
+.about__wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -82,9 +81,14 @@ section:not(:first-child) {
     width: 100%;
     height: 100%;
 }
+// about01
+.about01 {
+    background: url('../images/main/grid_bg.jpg') repeat;
+}
 .about01-txt {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     p {
         font-family: var(--k-ff2);
         font-size: 4rem;
@@ -120,18 +124,14 @@ section:not(:first-child) {
         height: 45.3rem;
         margin-top: 1.6rem;
         margin-left: 1.6rem;
-        border: 1px solid red;
         border-radius: 1.8rem 1.8rem 0 0;
-        & > img {
-            border: 1px solid red;
-        }
     }
     .list__wrap {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 100%;
         padding: 0 6rem;
-        align-items: center;
         ul {
             display: flex;
             flex-direction: column;
@@ -143,11 +143,16 @@ section:not(:first-child) {
                     gap: 2rem;
                 }
                 span {
-                    font-size: 2.3rem;
-                    color: #fff;
                     font-family: var(--k-ff2);
-
+                    font-size: 2.8rem;
+                    color: #fff;
                 }
+            }
+        }
+        .list__r {
+            a {
+                display: flex;
+                flex-direction: row-reverse;
             }
         }
     }
@@ -160,5 +165,25 @@ section:not(:first-child) {
         height: 100%;
     }
 }
-
+// about02
+.about02 {
+    position: relative;
+    background-color: #000;
+    .about02-txt {
+        svg {
+            width: 109.4rem;
+            color: #fff;
+        }
+    }
+    .about02-txt:first-child {
+        color: #fff;
+    }
+}
+.swiper.card {
+    width: 65rem;
+    height: 65rem;
+    .swiper-slide {
+        border-radius: 6rem;
+    }
+}
 /* about 영역 // --------------------------------------------- */

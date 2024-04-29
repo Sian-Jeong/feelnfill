@@ -71,15 +71,14 @@ section:not(:first-child) {
 }
 
 /* about 영역 ------------------------------------------------ */
-.about01 {
+.about {
   display: flex;
   justify-content: center;
   position: relative;
   height: 100vh;
-  background: url("../images/main/grid_bg.jpg") repeat;
 }
 
-.about01__wrap {
+.about__wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,9 +87,14 @@ section:not(:first-child) {
   height: 100%;
 }
 
+.about01 {
+  background: url("../images/main/grid_bg.jpg") repeat;
+}
+
 .about01-txt {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .about01-txt p {
   font-family: var(--k-ff2);
@@ -133,18 +137,14 @@ section:not(:first-child) {
   height: 45.3rem;
   margin-top: 1.6rem;
   margin-left: 1.6rem;
-  border: 1px solid red;
   border-radius: 1.8rem 1.8rem 0 0;
-}
-.about01-img .inner > img {
-  border: 1px solid red;
 }
 .about01-img .list__wrap {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: 0 6rem;
-  align-items: center;
 }
 .about01-img .list__wrap ul {
   display: flex;
@@ -157,9 +157,13 @@ section:not(:first-child) {
   gap: 2rem;
 }
 .about01-img .list__wrap ul li span {
-  font-size: 2.3rem;
-  color: #fff;
   font-family: var(--k-ff2);
+  font-size: 2.8rem;
+  color: #fff;
+}
+.about01-img .list__wrap .list__r a {
+  display: flex;
+  flex-direction: row-reverse;
 }
 .about01-img .character--img {
   display: flex;
@@ -168,6 +172,26 @@ section:not(:first-child) {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.about02 {
+  position: relative;
+  background-color: #000;
+}
+.about02 .about02-txt svg {
+  width: 109.4rem;
+  color: #fff;
+}
+.about02 .about02-txt:first-child {
+  color: #fff;
+}
+
+.swiper.card {
+  width: 65rem;
+  height: 65rem;
+}
+.swiper.card .swiper-slide {
+  border-radius: 6rem;
 }
 
 /* about 영역 // --------------------------------------------- */
