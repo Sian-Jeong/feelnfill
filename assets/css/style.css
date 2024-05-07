@@ -26,10 +26,31 @@
 }
 .mv .mv--img svg {
   width: 10.7rem;
+  height: auto;
 }
 .mv .slogan__txt {
   font-family: var(--k-ff2);
   font-size: 8rem;
+}
+
+.slogan__txt #typedTxt {
+  display: inline-block;
+  position: relative;
+}
+
+.slogan__txt #typedTxt::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 4px;
+  height: 100%;
+  content: "";
+  background-color: #000;
+}
+
+.slogan__txt #typedTxt.active::after {
+  display: none; /*active 클래스가 있으면 보이지 않음*/
 }
 
 @keyframes flow-txt {
@@ -174,16 +195,93 @@ section:not(:first-child) {
   height: 100%;
 }
 
+@keyframes rotateAni {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .about02 {
   position: relative;
   background-color: #000;
 }
-.about02 .about02-txt svg {
-  width: 109.4rem;
-  color: #fff;
+.about02 .about02-txt__wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
 }
-.about02 .about02-txt:first-child {
-  color: #fff;
+.about02 .about02-txt__wrap .inner {
+  position: absolute;
+  width: 100%;
+  height: 42rem;
+}
+.about02 .about02-txt__wrap .inner span {
+  position: absolute;
+}
+.about02 .about02-txt__wrap .inner span:first-child {
+  left: -5%;
+  z-index: 5;
+}
+.about02 .about02-txt__wrap .inner span:last-child {
+  right: -5%;
+  bottom: 0;
+  z-index: 0;
+}
+.about02 .about02--txt {
+  display: block;
+}
+.about02 .about02--txt svg {
+  width: 120rem;
+}
+.about02 .about02--txt svg path {
+  fill: #fff;
+}
+.about02 #txtGray {
+  opacity: 0.1;
+}
+.about02 .floating {
+  position: absolute;
+}
+.about02 .floating.item01 {
+  display: inline-block;
+  top: 7%;
+  right: 18%;
+  width: 18.9rem;
+  height: 18.9rem;
+}
+.about02 .floating.item01:after, .about02 .floating.item01:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background-repeat: no-repeat;
+}
+.about02 .floating.item01:after {
+  background: url("../images/main/about02_item01_01.png");
+  animation: rotateAni 10s infinite linear;
+}
+.about02 .floating.item01:before {
+  z-index: 1;
+  background: url("../images/main/about02_item01_02.png");
+}
+.about02 .floating.item02 {
+  display: inline-block;
+  top: 22%;
+  right: 5%;
+  width: 22rem;
+  height: 18rem;
+  background: url("../images/main/about02_item02.png") no-repeat;
+}
+.about02 .floating.item03 {
+  display: inline-block;
+  bottom: 10%;
+  left: 15%;
+  width: 25rem;
+  height: 24rem;
+  background: url("../images/main/about02_item03.png") no-repeat;
 }
 
 .swiper.card {

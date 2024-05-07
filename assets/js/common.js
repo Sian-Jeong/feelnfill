@@ -9,124 +9,31 @@ Editable : O
   개발에서 필요한 부분은 dev.js 파일에 작업 부탁드리며,
   common.js에서 삭제 필요한 부분은 디자인팀에 따로 전달 및 협의 부탁드립니다.
 ------------------------------------------------------------------------*/
+
 document.addEventListener('DOMContentLoaded', function () {
-    const titArray = ['AI', 'PARTNER', 'SMART']; //슬라이드 타이틀
-    const slideTitItems = document.querySelectorAll('#mvSlider .slide-tit__wrapper > li');
-    slideTitItems.forEach(function (item) {
-        const txt = item.textContent;
-        titArray.push(txt);
-    });
+    //javascript 작성하기
 
-    //슬라이드 전체 페이지 번호
-    const num = document.querySelector('#mvSlider .num');
-    const slides = document.querySelectorAll('#mvSlider .swiper-slide');
-    const slideCount = slides.length;
-    num.innerHTML = `<strong>1</strong> / ${slideCount}`;
+    const target = document.querySelector('#typedTxt'); //html에서 dynamic 선택
 
-    //슬라이드 시작
-    const swiper = new Swiper('#mvSlider', {
-        loop: true,
-        slidesPerView: 1,
-        autoplay: {
-            delay: 3000, //CSS animation과 시간 동일하게
-            disableOnInteraction: false,
-        },
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true,
-        },
-        navigation: {
-            prevEl: '#mvSlider .btn--prev',
-            nextEl: '#mvSlider .btn--next',
-        },
-        //pagination 텍스트 & progress bar 형태로 변경
-        pagination: {
-            el: '#mvSlider .slide-tit__wrapper',
-            clickable: true,
-            type: 'bullets',
-            renderBullet: function (index, className) {
-                return `<li class=${className}><span class="bar"></span><span class="tit">${titArray[index]}</span></li>`;
-            },
-        },
-        //현재 페이지 번호 갱신
-        on: {
-            slideChange: function () {
-                num.innerHTML = `<strong>${swiper.realIndex + 1}</strong> / ${slideCount}`;
-            },
-        },
-    });
+    //함수 만들기
+    function blink() {
+        target.classList.toggle('active'); // dynamic에 active 클래스 추가<->삭제 반복
+    }
+    setInterval(blink, 500); // blink 함수를 0.5초마다 실행
 
-    // play, stop
-    const mvPlay = document.querySelector('.btn--play');
-    const mvStop = document.querySelector('.btn--stop');
-    const prevAndNextBtn = document.querySelectorAll('.control__wrapper > button');
+    //javascript 작성하기
+    const string = 'Feel and Fill'; //원하는 텍스트를 string변수 선언
+    const split = string.split(''); //string의 텍스트를 여러개의 문자열로 나눠줌
 
-    mvStop.addEventListener('click', () => {
-        console.log('dd');
-        mvStop.style.display = 'none';
-        mvPlay.style.display = 'block';
-        swiper.autoplay.stop();
-    });
-    mvPlay.addEventListener('click', () => {
-        console.log('dd');
-        mvPlay.style.display = 'none';
-        mvStop.style.display = 'block';
-        swiper.autoplay.stop();
-    });
-
-    // 퀵 메뉴
-    /* 뱃지 효과_.throttle(함수, 시간) */
-    const quickMenuEl = document.querySelector('.quick-menu--on');
-    const quickArrowBtn = document.getElementById('quickArrowBtn');
-
-    window.addEventListener(
-        'scroll',
-        _.throttle(function () {
-            if (window.scrollY >= sectionTwoY) {
-                gsap.to(quickArrowBtn, {
-                    x: 155,
-                    duration: 0.4,
-                });
-                gsap.to(quickMenuEl, {
-                    scale: 0,
-                    transformOrigin: '100% 50%',
-                    duration: 0.8,
-                });
-            }
-            if (window.scrollY < sectionTwoY) {
-                gsap.to(quickArrowBtn, {
-                    x: 0,
-                    duration: 0.4,
-                });
-                gsap.to(quickMenuEl, {
-                    scale: 1,
-                    transformOrigin: '100% 50%',
-                    duration: 0.8,
-                });
-            }
-        }, 200)
-    ); // 단위 밀리세컨드 1000 → 1초
-
-    // 스크롤 페이지 이동
-    const sectionTwo = document.getElementById('section2');
-    const sectionTwoY = sectionTwo.offsetTop; // 두번째 섹션 위치값
-    window.addEventListener('wheel', (e) => {
-        // 스크롤 다운 동작일 때
-        if (e.deltaY > 0) {
-            // mainVisual 영역 내에서 스크롤 다운 시
-            if (window.scrollY < sectionTwoY) {
-                gsap.to(window, 0.5, {
-                    scrollTo: sectionTwoY,
-                });
-            }
+    //문자열을 한개씩 나타내주는 함수 만들기
+    function dynamic(arr) {
+        if (arr.length > 0) {
+            //배열의 길이가 0보다 크면(배열에 요소가 하나라도 있다면)
+            target.textContent += arr.shift(); //dynamic에 textContent에 배열의 요소 추가
+            setTimeout(function () {
+                dynamic(arr);
+            }, 80); //0.08초 후에 daynamic함수를 실행
         }
-        if (e.deltaY < 0) {
-            // mainVisual 영역 내에서 스크롤 다운 시
-            if (window.scrollY <= sectionTwoY) {
-                gsap.to(window, 0.5, {
-                    scrollTo: 0,
-                });
-            }
-        }
-    });
+    }
+    dynamic(split); //dynamic함수에 split인자 넣어서 실행
 });

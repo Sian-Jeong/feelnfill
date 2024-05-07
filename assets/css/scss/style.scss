@@ -22,6 +22,7 @@
         justify-content: center;
         svg {
             width: 10.7rem;
+            height: auto;
         }
     }
     .slogan__txt {
@@ -29,6 +30,25 @@
         font-size: 8rem;
     }
 }
+.slogan__txt #typedTxt {
+    display: inline-block;
+    position: relative;
+}
+// 커서모양
+.slogan__txt #typedTxt::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 4px;
+    height: 100%;
+    content: '';
+    background-color: #000;
+}
+.slogan__txt #typedTxt.active::after {
+    display: none; /*active 클래스가 있으면 보이지 않음*/
+}
+
 @keyframes flow-txt {
     0% {
         left: 0;
@@ -165,18 +185,99 @@ section:not(:first-child) {
         height: 100%;
     }
 }
+
 // about02
+@keyframes rotateAni {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
 .about02 {
     position: relative;
     background-color: #000;
-    .about02-txt {
-        svg {
-            width: 109.4rem;
-            color: #fff;
+    .about02-txt__wrap {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        .inner {
+            position: absolute;
+            width: 100%;
+            height: 42rem;
+            span {
+                position: absolute;
+                &:first-child {
+                    left: -5%;
+                    z-index: 5;
+                }
+                &:last-child {
+                    right: -5%;
+                    bottom: 0;
+                    z-index: 0;
+                }
+            }
         }
     }
-    .about02-txt:first-child {
-        color: #fff;
+    .about02--txt {
+        display: block;
+        svg {
+            width: 120rem;
+            path {
+                fill: #fff;
+            }
+        }
+    }
+    #txtGray {
+        opacity: 0.1;
+    }
+    .floating {
+        position: absolute;
+        &.item01 {
+            display: inline-block;
+            top: 7%;
+            right: 18%;
+            width: 18.9rem;
+            height: 18.9rem;
+            &:after, &:before {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                content: '';
+                background-repeat: no-repeat;
+            }
+            &:after {
+                background: url('../images/main/about02_item01_01.png');
+                animation: rotateAni 10s infinite linear;
+            }
+            &:before {
+                z-index: 1;
+                background: url('../images/main/about02_item01_02.png');
+            }
+
+        }
+        &.item02 {
+            display: inline-block;
+            top: 22%;
+            right: 5%;
+            width: 22rem;
+            height: 18rem;
+            background: url('../images/main/about02_item02.png') no-repeat;
+        }
+        &.item03 {
+            display: inline-block;
+            bottom: 10%;
+            left: 15%;
+            width: 25rem;
+            height: 24rem;
+            background: url('../images/main/about02_item03.png') no-repeat;
+        }
     }
 }
 .swiper.card {
