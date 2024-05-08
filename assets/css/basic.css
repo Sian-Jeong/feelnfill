@@ -8,6 +8,17 @@ Editable : X
 ※ reset.css 등 각종 설정과 같은 용도로 사용, 관리자 외 수정 불가
 -------------------------------------------------------------------------*/
 
+/* 폰트 불러오기 */
+@import "../fonts/Pretendard.css";
+@import "../fonts/SCDream.css";
+@import "../fonts/DungGeunMo.css";
+@import "../fonts/MavenPro.css";
+
+body {
+  overflow: visible;
+  font-family: 'Pretendard', 'SCDream', 'DungGeunMo', 'MavenPro' san-serif;
+}
+
 /* 리셋 CSS------------------------------------------------------------ */
 *, *::before, *::after {box-sizing: inherit;}
 html {overflow: hidden; overflow-y: auto; box-sizing: border-box;}

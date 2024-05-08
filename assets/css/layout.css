@@ -52,7 +52,7 @@ Editable : O (변수 추가 시, 하단에 추가)
   /* 한글 종류 사용: font - 폰트명 */
   --k-ff1: "Pretendard";
   --k-ff2: "DungGeunMo";
-  --k-ff3: "S-Core Dream";
+  --k-ff3: "SCDream";
   /* 영문 종류 사용: font - 폰트명 */
   --e-ff1: "MavenPro";
   --e-ff2: ;
@@ -83,11 +83,6 @@ Editable : O (변수 추가 시, 하단에 추가)
 /* width(모바일 최소 사이즈 320px 기준) => xxs */
 html {
   overflow: auto;
-}
-
-body {
-  overflow: visible;
-  font-family: "Pretendard", "S-Core Dream", san-serif;
 }
 
 #wrap {
