@@ -287,4 +287,23 @@ section:not(:first-child) {
         border-radius: 6rem;
     }
 }
+
+// about03 
+.about03--txt__wrap {
+    text-align: center;
+    margin-top: 18rem;
+    p {
+        line-height: 1;
+        &:nth-child(2) {
+            margin-top: 6rem;
+            font-size: 5rem;
+            font-family: 'S-Core Dream';
+        }
+        &:nth-child(3) {
+            margin-top: 5rem;
+            font-size: 3rem;
+        }
+    }
+}
+
 /* about 영역 // --------------------------------------------- */

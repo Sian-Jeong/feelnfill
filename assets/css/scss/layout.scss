@@ -9,9 +9,6 @@ Editable : O
 ------------------------------------------------------------------------*/
 /* 변수 설정 */
 @import 'module';
-/* 폰트 설정 */
-@import '../fonts/Pretendard.css';
-@import '../fonts/MavenPro.css';
 
 /* width(태블릿 1920px 기준) */
 @media (max-width: 1920px) {
@@ -42,7 +39,7 @@ html {
 }
 body {
     overflow: visible;
-    font-family: 'Pretendard', 'MavenPro', san-serif;
+    font-family: 'Pretendard', 'S-Core Dream', san-serif;
 }
 #wrap {
     overflow: hidden;

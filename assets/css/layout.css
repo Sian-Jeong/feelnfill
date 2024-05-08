@@ -17,8 +17,6 @@ Editable : O (변수 추가 시, 하단에 추가)
 ※ CSS변수 선언(ex: 색상, 폰트, 크기)
 ------------------------------------------------------------------------*/
 /* CSS변수 */
-@import '../fonts/Pretendard.css';
-@import '../fonts/MavenPro.css';
 :root {
   /* [Color 설정] ------------------------------*/
   --primary: #111;
@@ -54,6 +52,7 @@ Editable : O (변수 추가 시, 하단에 추가)
   /* 한글 종류 사용: font - 폰트명 */
   --k-ff1: "Pretendard";
   --k-ff2: "DungGeunMo";
+  --k-ff3: "S-Core Dream";
   /* 영문 종류 사용: font - 폰트명 */
   --e-ff1: "MavenPro";
   --e-ff2: ;
@@ -74,7 +73,6 @@ Editable : O (변수 추가 시, 하단에 추가)
   /*------------------------------------------------*/
 }
 
-/* 폰트 설정 */
 /* width(태블릿 1920px 기준) */
 /* width(태블릿 1400px 기준) => xxl */
 /* width(태블릿 1200px 기준) => xl */
@@ -89,7 +87,7 @@ html {
 
 body {
   overflow: visible;
-  font-family: "Pretendard", "MavenPro", san-serif;
+  font-family: "Pretendard", "S-Core Dream", san-serif;
 }
 
 #wrap {
