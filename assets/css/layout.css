@@ -107,25 +107,35 @@ html {
     padding: 0 3rem;
   }
 }
+@keyframes flow {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
 /* HEADER 영역 ----------------------------------------------- */
 header {
+  display: flex;
+  align-items: center;
   position: fixed;
   width: 100%;
+  height: 8rem;
 }
 header .header__wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6rem;
+  width: 100%;
   padding: 0 5rem;
 }
-
-nav ul {
+header nav ul {
   display: flex;
   align-items: center;
   gap: 7rem;
 }
-nav ul a {
+header nav ul a {
   font-family: var(--e-ff1);
   font-size: 1.8rem;
   font-weight: 600;
@@ -137,8 +147,8 @@ aside {
   position: fixed;
   right: 0;
   bottom: 6rem;
-  margin-right: 5rem;
   z-index: 999;
+  margin-right: 5rem;
 }
 aside svg {
   width: 7rem;
@@ -178,14 +188,6 @@ aside svg {
   font-size: 8rem;
 }
 
-@keyframes flow-txt {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: -100%;
-  }
-}
 .flow-txt {
   overflow: hidden;
   position: absolute;
@@ -200,7 +202,7 @@ aside svg {
   overflow: hidden;
   position: absolute;
   width: 200%;
-  animation: flow-txt 18s linear infinite;
+  animation: flow 18s linear infinite;
 }
 .flow-txt span {
   width: 50rem !important;
@@ -211,10 +213,3 @@ aside svg {
 }
 
 /* intro 영역 // --------------------------------------------- */
-section:not(:first-child) {
-  position: relative;
-  font-size: 10rem;
-}
-
-/* about 영역 ------------------------------------------------ */
-/* about 영역 // --------------------------------------------- */

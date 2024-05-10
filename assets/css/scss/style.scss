@@ -370,106 +370,118 @@ section:not(:first-child) {
     line-height: 1.4;
     word-break: keep-all;
 }
-#scrollBg_02 {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    border: 10px solid;
-    .parallax__item {
-        width: 100%;
-        &.item02 {
-            background-color: red;
-        }
-        &.item03 {
-            background-color: blue;
-        }
-        &.item04 {
-            background-color: blue;
-        }
-    }
-}
-.panels {
-    overflow: scroll;
-    // will kill scrollTrigger if scroller: ".panels" is not set
-    // required for scroll-snap // dev remove on last panel for content after?
-    height: 100vh;
-    width: 100%;
-    scroll-snap-type: y mandatory;
-}
-
-.panel {
-    scroll-snap-align: start;
-    width: 100%;
-    height: 100vh;
+#scrollBg_01 {
     display: flex;
     justify-content: center;
-    &.active {
-        // todo - hook
+    .big-txt {
+        display: block;
+        position: relative;
+        &:after {
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            z-index: -1;
+            width: 70rem;
+            height: 3.3rem;
+            background: url('../images/main/underline.svg');
+            content: '';
+            transform: translateX(-50%);
+        }
+    }
+    .star--img {
+        display: inline-block;
+        position: relative;
+        width: 7.5rem;
+        height: 9.2rem;
+        &:before,
+        &:after {
+            display: inline-block;
+            position: absolute;
+            background: url('../images/main/star.svg') center/contain no-repeat;
+            content: '';
+        }
+        &:before {
+            left: 0;
+            width: 5.5rem;
+            height: 5.5rem;
+        }
+        &:after {
+            right: 0;
+            bottom: 0;
+            width: 3.6rem;
+            height: 3.6rem;
+        }
     }
 }
-
-.clip {
-    position: sticky;
-    height: 0;
-    width: 100%;
-    top: 0;
-    margin-bottom: 0;
-}
-.clip {
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
+#scrollBg_02 {
+    height: 100%;
+    margin: 0;
+    ul {
+        li {
+            display: flex;
+            justify-content: flex-start !important;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+    }
+    .pofol-item__info {
+        display: flex;
+        flex-direction: column;
+        max-width: 160rem;
         width: 100%;
-        height: 100vh;
-        object-fit: cover;
-        object-position: center center;
-        z-index: 1;
+        margin: 0 auto;
+        line-height: 1;
+        color: #fff;
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 29rem;
+            height: 6rem;
+            margin-top: 5rem;
+            border: 1px solid rgba($color: #fff, $alpha: 0.5);
+            border-radius: 5px;
+            font-family: var(--e-ff1);
+            font-size: 2rem;
+            font-weight: 500;
+        }
     }
-}
-
-
-a {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all ease 0.25s;
-}
-
-// .controls {
-//     position: fixed;
-//     bottom: 40px;
-//     right: 40px;
-//     z-index: 2;
-//     font-size: 30px;
-//     font-family: courier, mono;
-//     // background:red;
-//     display: flex;
-//     flex-wrap: wrap;
-//     a.disabled {
-//         opacity: 0.5;
-//         pointer-events: none;
-//     }
-//     .down {
-//         //	background:blue;
-//     }
-//     a {
-//         display: block;
-//         width: 36px;
-//         height: 36px;
-//         line-height: 36px;
-//         border-radius: 36px;
-//         text-align: center;
-//         background: rgba(0, 0, 0, 0);
-//         &:first-child {
-//             margin-right: -8px;
-//         }
-//     }
-// }
-
-span.note {
-    position: fixed;
-    bottom: 40px;
-    right: calc(20px + 120px);
-    z-index: 2;
+    .pro-name-tit {
+        font-family: var(--e-ff1);
+        font-size: 1.6rem;
+        font-weight: 200;
+        opacity: 0.6;
+    }
+    .pro--name,
+    .pro-client {
+        font-family: var(--k-ff1);
+    }
+    .pro--name {
+        margin: 2rem 0 3rem;
+        font-size: 4rem;
+        font-weight: 600;
+    }
+    .pro-client {
+        font-size: 1.8rem;
+    }
+    .pofol-item {
+        background-repeat: no-repeat;
+    }
+    .item01 {
+        background: url('../images/main/portfolio_img01.jpg');
+    }
+    .item02 {
+        background: url('../images/main/portfolio_img02.jpg');
+    }
+    .item03 {
+        background: url('../images/main/portfolio_img01.jpg');
+    }
+    .item04 {
+        background: url('../images/main/portfolio_img01.jpg');
+    }
+    .item05 {
+        background: url('../images/main/portfolio_img05.jpg');
+    }
 }

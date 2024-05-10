@@ -37,131 +37,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     dynamic(split); //dynamic함수에 split인자 넣어서 실행
 
-    // gsap.utils.toArray('.parallax__item').forEach((item) => {
-    //     let color = item.getAttribute('data-bgcolor');
+    /* 포트폴리오 */
+    const porfolEls = document.querySelectorAll('.pofol-item');
+    // const porfolItems = porfolEls.childNodes;
 
-    //     ScrollTrigger.create({
-    //         trigger: item,
-    //         start: 'top 50%',
-    //         end: 'bottom 5%',
-    //         markers: true,
-
-    //         onEnter: () =>
-    //             gsap.to('body', {
-    //                 backgroundColor: color,
-    //                 duration: 1,
-    //             }),
-    //         onEnterBack: () =>
-    //             gsap.to('body', {
-    //                 backgroundColor: color,
-    //                 duration: 1,
-    //             }),
-    //     });
-    // });
-
-    // //09 : 이미지 확대하기
-    // const ani9 = gsap.timeline();
-    // ani9.to('#scrollBg_02 .parallax__item__img', { scale: 10 }).to('#scrollBg_02 .parallax__item__img', { autoAlpha: 0 });
-
-    // ScrollTrigger.create({
-    //     animation: ani9,
-    //     trigger: '#scrollBg_02',
-    //     start: 'top top',
-    //     end: '+=4000',
-    //     scrub: true,
-    //     pin: true,
-    //     markers: false,
-    //     anticipatePin: 1,
-    // });
-    console.clear();
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
-    let panels = document.querySelector('.panels');
-    let sections = gsap.utils.toArray('.panel');
-    let activeSlide = document.querySelector('.activeSlide');
-    let totalSlides = sections.length;
-    let slideTotal = document.querySelector('.slideTotal');
-    slideTotal.innerHTML = totalSlides;
-
-    sections.forEach((eachPanel, index) => {
-        let realIndex = index + 1;
-
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.utils.toArray(porfolEls).forEach((item, i) => {
         ScrollTrigger.create({
-            scroller: '.panels',
-            trigger: eachPanel,
-            start: 'top 50%', // count changes @ 20%
-            end: 'top bottom',
-            //	markers:true
-            //  no ST pinning / scrubbing - major problems in iOS
-            //	so we that in native CSS (scroll-snap / sticky)
-            onLeave: function () {
-                eachPanel.classList.add('active');
-                activeSlide.innerHTML = realIndex;
-                //	console.log('active: i = ' + realIndex);
-                let indexNext = realIndex + 1;
-                let indexPrev = realIndex - 1;
-                dnBtn.setAttribute('data-down', indexNext);
-                upBtn.setAttribute('data-up', indexPrev);
-                updateUI(indexPrev, indexNext);
-            },
-            onLeaveBack: function () {
-                eachPanel.classList.remove('active');
-                let realIndexBack = realIndex - 1;
-                activeSlide.innerHTML = realIndexBack;
-                //  console.log('active: i = ' + realIndexBack);
-                let indexNext = realIndex;
-                let indexPrev = realIndex - 2;
-                dnBtn.setAttribute('data-down', indexNext);
-                upBtn.setAttribute('data-up', indexPrev);
-                updateUI(indexPrev, indexNext);
-            },
+            trigger: item,
+            start: 'top top',
+            pin: true,
+            pinSpacing: false,
         });
     });
-
-    function updateUI(keyIndexUp, keyIndexDown) {
-        if (keyIndexDown > 2) {
-            upBtn.classList.remove('disabled');
-        } else {
-            upBtn.classList.add('disabled');
-        }
-
-        if (keyIndexDown > totalSlides) {
-            // (6)
-            dnBtn.classList.toggle('disabled');
-        } else {
-            dnBtn.classList.remove('disabled');
-        }
-    }
-
-    let upBtn = document.querySelector('.up');
-    let dnBtn = document.querySelector('.down');
-    dnBtn.addEventListener('click', panelDown);
-    upBtn.addEventListener('click', panelUp);
-
-    function panelDown() {
-        let nextPanel = this.getAttribute('data-down');
-        if (nextPanel <= totalSlides) {
-            // less/equal to 5
-            goToPanel(nextPanel);
-        }
-    } // panelDown
-
-    function panelUp() {
-        let prevPanel = this.getAttribute('data-up');
-        if (prevPanel >= 1) {
-            // more/equal to 1
-            goToPanel(prevPanel);
-        }
-    } // panelDown
-
-    function goToPanel(thePanel) {
-        gsap.to(panels, {
-            ease: 'power4.inOut',
-            duration: 0.55,
-            scrollTo: {
-                y: '#panel_' + thePanel,
-                autoKill: false,
-            },
-        });
-    }
+    ScrollTrigger.create({
+        snap: 1 / 4,
+    });
 });

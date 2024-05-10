@@ -369,70 +369,116 @@ section:not(:first-child) {
   word-break: keep-all;
 }
 
-#scrollBg_02 {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  border: 10px solid;
-}
-#scrollBg_02 .parallax__item {
-  width: 100%;
-}
-#scrollBg_02 .parallax__item.item02 {
-  background-color: red;
-}
-#scrollBg_02 .parallax__item.item03 {
-  background-color: blue;
-}
-#scrollBg_02 .parallax__item.item04 {
-  background-color: blue;
-}
-
-.panels {
-  overflow: scroll;
-  height: 100vh;
-  width: 100%;
-  scroll-snap-type: y mandatory;
-}
-
-.panel {
-  scroll-snap-align: start;
-  width: 100%;
-  height: 100vh;
+#scrollBg_01 {
   display: flex;
   justify-content: center;
 }
-.clip {
-  position: sticky;
-  height: 0;
-  width: 100%;
-  top: 0;
-  margin-bottom: 0;
+#scrollBg_01 .big-txt {
+  display: block;
+  position: relative;
+}
+#scrollBg_01 .big-txt:after {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  z-index: -1;
+  width: 70rem;
+  height: 3.3rem;
+  background: url("../images/main/underline.svg");
+  content: "";
+  transform: translateX(-50%);
+}
+#scrollBg_01 .star--img {
+  display: inline-block;
+  position: relative;
+  width: 7.5rem;
+  height: 9.2rem;
+}
+#scrollBg_01 .star--img:before, #scrollBg_01 .star--img:after {
+  display: inline-block;
+  position: absolute;
+  background: url("../images/main/star.svg") center/contain no-repeat;
+  content: "";
+}
+#scrollBg_01 .star--img:before {
+  left: 0;
+  width: 5.5rem;
+  height: 5.5rem;
+}
+#scrollBg_01 .star--img:after {
+  right: 0;
+  bottom: 0;
+  width: 3.6rem;
+  height: 3.6rem;
 }
 
-.clip img {
-  position: absolute;
-  top: 0;
-  left: 0;
+#scrollBg_02 {
+  height: 100%;
+  margin: 0;
+}
+#scrollBg_02 ul li {
+  display: flex;
+  justify-content: flex-start !important;
+  align-items: center;
+  position: relative;
   width: 100%;
   height: 100vh;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center center;
-     object-position: center center;
-  z-index: 1;
 }
-
-a {
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all ease 0.25s;
+#scrollBg_02 .pofol-item__info {
+  display: flex;
+  flex-direction: column;
+  max-width: 160rem;
+  width: 100%;
+  margin: 0 auto;
+  line-height: 1;
+  color: #fff;
 }
-
-span.note {
-  position: fixed;
-  bottom: 40px;
-  right: 140px;
-  z-index: 2;
+#scrollBg_02 .pofol-item__info a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 29rem;
+  height: 6rem;
+  margin-top: 5rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  font-family: var(--e-ff1);
+  font-size: 2rem;
+  font-weight: 500;
+}
+#scrollBg_02 .pro-name-tit {
+  font-family: var(--e-ff1);
+  font-size: 1.6rem;
+  font-weight: 200;
+  opacity: 0.6;
+}
+#scrollBg_02 .pro--name,
+#scrollBg_02 .pro-client {
+  font-family: var(--k-ff1);
+}
+#scrollBg_02 .pro--name {
+  margin: 2rem 0 3rem;
+  font-size: 4rem;
+  font-weight: 600;
+}
+#scrollBg_02 .pro-client {
+  font-size: 1.8rem;
+}
+#scrollBg_02 .pofol-item {
+  background-repeat: no-repeat;
+}
+#scrollBg_02 .item01 {
+  background: url("../images/main/portfolio_img01.jpg");
+}
+#scrollBg_02 .item02 {
+  background: url("../images/main/portfolio_img02.jpg");
+}
+#scrollBg_02 .item03 {
+  background: url("../images/main/portfolio_img01.jpg");
+}
+#scrollBg_02 .item04 {
+  background: url("../images/main/portfolio_img01.jpg");
+}
+#scrollBg_02 .item05 {
+  background: url("../images/main/portfolio_img05.jpg");
 }
