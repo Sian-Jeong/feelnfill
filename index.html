@@ -61,8 +61,8 @@
                     <h1><img src="./assets/images/common/logo.png" alt="로고" /></h1>
                     <nav>
                         <ul>
-                            <li><a href="javascript:void(0)">About Me</a></li>
-                            <li><a href="javascript:void(0)">Portfolio</a></li>
+                            <li><a href="#about01">About Me</a></li>
+                            <li><a href="#scrollBg_01">Portfolio</a></li>
                             <li><a href="javascript:void(0)">Contact</a></li>
                         </ul>
                     </nav>
@@ -169,7 +169,7 @@
                 <!-- 메인비주얼 영역 // -->
 
                 <!-- about 영역 -->
-                <section class="about01 about">
+                <section id="about01" class="about01 about">
                     <h3 class="sr-only">경력사항</h3>
                     <div class="about01__wrap about__wrap container">
                         <div class="about01-txt">
@@ -248,18 +248,20 @@
                         </div>
                     </div>
                 </section>
-                <div class="about02 about">
+                <div class="about02 about  parallax__item">
                     <div class="about02-txt__wrap">
                         <span class="container">
                             <div class="floating item01">
                                 <span class="smile"></span>
                                 <span class="flower"></span>
                             </div>
-                            <span class="floating item02"></span>
-                            <span class="floating item03"></span>
+                            <span class="floating__wrap">
+                                <span class="floating item02"></span>
+                                <span class="floating item03"></span>
+                            </span>
                         </span>
-                        <div class="inner">
-                            <span class="about02--txt">
+                        <div  class="inner">
+                            <span class="about02--txt parallax__item__text t1">
                                 <!-- Feel and Fill(white) - svg -->
                                 <svg id="txtWhite" viewBox="0 0 407.8 42.75">
                                     <path class="cls-1" d="M8.6,1.55h38.8l-2.2,10.35h-24.35l-1.1,5.05h22.85l-2.15,10.15h-22.85l-3.15,14.9H0L8.6,1.55Z" />
@@ -284,7 +286,7 @@
                                 </svg>
                                 <!-- Feel and Fill(gary) - svg // -->
                             </span>
-                            <span class="about02--txt">
+                            <span class="about02--txt parallax__item__text t2">
                                 <!-- Feel and Fill - svg -->
                                 <svg id="txtGray" viewBox="0 0 407.8 42.75">
                                     <path class="cls-1" d="M8.6,1.55h38.8l-2.2,10.35h-24.35l-1.1,5.05h22.85l-2.15,10.15h-22.85l-3.15,14.9H0L8.6,1.55Z" />
@@ -343,39 +345,137 @@
                                     <span class="pro-name-tit">Project Name. </span>
                                     <p class="pro--name">지능형 디지털 콘텐츠 유통플랫폼</p>
                                     <span class="pro-client">Client : 광주테크노파크</span>
-                                    <a href="https://gjdc.jointree.co.kr/" target="_blank">More View</a>
+                                    <div class="pofol-role">
+                                        <span class="design">UI/UX Design : 100%</span>
+                                        <span class="publishing">Publishing : 15%</span>
+                                    </div>
+                                    <div class="pofol-link__list">
+                                        <a href="https://centerforesg.kumc.or.kr/main.do" target="_blank">
+                                            웹사이트 바로가기
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="item02 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
-                                    <p class="pro--name">고대의료원 반응형 웹사이트 구축(제안)</p>
-                                    <span class="pro-client">Client : 고대의료원</span>
-                                    <a href="javascript:void(0)">More View</a>
+                                    <p class="pro--name">경희의료원 및 단위병원 반응형 웹사이트 구축</p>
+                                    <span class="pro-client">Client : 경희의료원</span>
+                                    <div class="pofol-role">
+                                        <span>UI/UX Design : 50%</span>
+                                    </div>
+                                    <div class="pofol-link__list">
+                                        <a href="https://centerforesg.kumc.or.kr/main.do" target="_blank">
+                                            경희의료원 바로가기
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                        <a href="https://med.khmc.or.kr/kr/main.do" target="_blank">
+                                            경희의료원 단위병원 바로가기
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="item03 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
-                                    <p class="pro--name">고대의료원 사회공헌사업부 웹사이트 구축</p>
+                                    <p class="pro--name">고대의료원 웹사이트 제안 및 구축</p>
                                     <span class="pro-client">Client : 고대의료원</span>
-                                    <a href="https://centerforesg.kumc.or.kr/main.do" target="_blank">More View</a>
+                                    <div class="pofol-role">
+                                        <span>제안(Main) UI/UX Design : 100% (Sub page 40%)</span>
+                                        <span>구축(Sub page) UI/UX Design : 20%</span>
+                                    </div>
+                                    <div class="pofol-link__list">
+                                        <a href="./assets/images/main/portfolio_osang_img02_web.jpg" target="_blank">
+                                            제안시안 링크
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                        <a href="https://www.kumc.or.kr/kr/index.do" target="_blank">
+                                            웹사이트 바로가기
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="item04 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
-                                    <p class="pro--name">경희의료원 및 단위병원 반응형 웹사이트 구축</p>
-                                    <span class="pro-client">Client : 경희의료원</span>
-                                    <a href="https://www.khmc.or.kr/kr/main.do">More View</a>
+                                    <p class="pro--name">고대의료원 사회공헌사업부 웹사이트 구축</p>
+                                    <span class="pro-client">Client : 고대의료원</span>
+                                    <div class="pofol-role">
+                                        <span>제안(Main) UI/UX Design : 100% (Sub page 20%)</span>
+                                    </div>
+                                    <div class="pofol-link__list">
+                                        <a href="https://centerforesg.kumc.or.kr/main.do" target="_blank">
+                                            웹사이트 바로가기
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                             <li class="item05 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
+                                    <p class="pro--name">페퍼저축은행 반응형 웹사이트 제안 및 구축</p>
+                                    <span class="pro-client">Client : 페퍼저축은행</span>
+                                    <div class="pofol-role">
+                                        <span>제안 UI/UX Design : 100%</span>
+                                        <span>구축 UI/UX Design : 70%</span>
+                                    </div>
+                                    <div class="pofol-link__list">
+                                        <a href="./assets/images/main/portfolio_osang_img04_web.jpg" target="_blank">
+                                            제안시안 링크
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                        <a href="https://www.pepperbank.kr/index.pepper" target="_blank">
+                                            웹사이트 바로가기
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item06 pofol-item">
+                                <div class="pofol-item__info">
+                                    <span class="pro-name-tit">Project Name. </span>
                                     <p class="pro--name">농협로컬푸드직매장 반응형 웹사이트 구축</p>
                                     <span class="pro-client">Client : 농협중앙회</span>
-                                    <a href="https://nhlocalfood.com/main/main.html" target="_blank">More View</a>
+                                    <div class="pofol-role">
+                                        <span>UI/UX Design : 100%</span>
+                                    </div>
+                                    <div class="pofol-link__list">
+                                        <a href="https://nhlocalfood.com/main/main.html" target="_blank">
+                                            웹사이트 바로가기
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>

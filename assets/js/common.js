@@ -32,10 +32,51 @@ document.addEventListener('DOMContentLoaded', function () {
             target.textContent += arr.shift(); //dynamic에 textContent에 배열의 요소 추가
             setTimeout(function () {
                 dynamic(arr);
-            }, 80); //0.08초 후에 daynamic함수를 실행
+            }); // daynamic함수를 실행
         }
     }
     dynamic(split); //dynamic함수에 split인자 넣어서 실행
+
+    /*
+     * 부유하는 요소 관리
+     */
+    // 범위 랜덤 함수(소수점 2자리까지)
+    function random(min, max) {
+        // `.toFixed()`를 통해 반환된 '문자 데이터'를,
+        // `parseFloat()`을 통해 소수점을 가지는 '숫자 데이터'로 변환
+        return parseFloat((Math.random() * (max - min) + min).toFixed(2));
+    }
+    // 부유하는(떠 다니는) 요소를 만드는 함수
+    function floatingObject(selector, delay, size) {
+        gsap.to(
+            selector, // 선택자 selector
+            random(3, 1.5), // 애니메이션 동작 시간 delay
+            {
+                delay: random(0, delay), // 얼마나 늦게 애니메이션을 시작할 것인지 지연 시간을 설정.
+                y: size, // `transform: translateY(수치);`와 같음. 수직으로 얼마나 움직일지 설정.
+                repeat: -1, // 몇 번 반복하는지를 설정, `-1`은 무한 반복.
+                yoyo: true, // 한번 재생된 애니메이션을 다시 뒤로 재생.
+                ease: Power1.easeInOut, // Easing 함수 적용.
+            }
+        );
+    }
+    floatingObject('.floating.item02', 0.5, 50);
+    floatingObject('.floating.item03', 1.5, 30);
+
+    // Feel and Fill - 텍스트 애니메이션
+    const ani5 = gsap.timeline();
+    ani5.to('.about02 .t1', { xPercent: 100 }, 'text').to('.about02 .t2', { xPercent: -100 }, 'text');
+
+    ScrollTrigger.create({
+        animation: ani5,
+        trigger: '.about02',
+        start: 'top top',
+        end: '+=1920',
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        markers: true,
+    });
 
     /* 포트폴리오 */
     const porfolEls = document.querySelectorAll('.pofol-item');
@@ -50,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pinSpacing: false,
         });
     });
-    ScrollTrigger.create({
-        snap: 1 / 4,
-    });
+    // ScrollTrigger.create({
+    //     snap: 1 / 6,
+    // });
 });

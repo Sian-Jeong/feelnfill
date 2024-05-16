@@ -412,6 +412,11 @@ section:not(:first-child) {
   height: 3.6rem;
 }
 
+@keyframes bounce {
+  to {
+    transform: translateX(7px);
+  }
+}
 #scrollBg_02 {
   height: 100%;
   margin: 0;
@@ -430,21 +435,9 @@ section:not(:first-child) {
   max-width: 160rem;
   width: 100%;
   margin: 0 auto;
+  font-family: var(--k-ff1);
   line-height: 1;
   color: #fff;
-}
-#scrollBg_02 .pofol-item__info a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 29rem;
-  height: 6rem;
-  margin-top: 5rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 5px;
-  font-family: var(--e-ff1);
-  font-size: 2rem;
-  font-weight: 500;
 }
 #scrollBg_02 .pro-name-tit {
   font-family: var(--e-ff1);
@@ -452,33 +445,120 @@ section:not(:first-child) {
   font-weight: 200;
   opacity: 0.6;
 }
-#scrollBg_02 .pro--name,
-#scrollBg_02 .pro-client {
-  font-family: var(--k-ff1);
-}
 #scrollBg_02 .pro--name {
   margin: 2rem 0 3rem;
   font-size: 4rem;
   font-weight: 600;
 }
 #scrollBg_02 .pro-client {
-  font-size: 1.8rem;
+  font-size: 2rem;
+}
+#scrollBg_02 .pofol-role {
+  display: flex;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.8;
+  gap: 1rem;
+}
+#scrollBg_02 .pofol-role span {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-right: 1rem;
+}
+#scrollBg_02 .pofol-role span:not(:last-child):after {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  content: "";
+}
+#scrollBg_02 .pofol-role .design {
+  position: relative;
+}
+#scrollBg_02 .pofol-role .design:before {
+  display: inline-block;
+  position: absolute;
+  content: "";
+}
+#scrollBg_02 .pofol-link__list {
+  display: flex;
+  margin-top: 5rem;
+  font-size: 1.6rem;
+  gap: 6rem;
+}
+#scrollBg_02 .pofol-link__list a {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+#scrollBg_02 .pofol-link__list a:hover .arrow {
+  animation: bounce 0.4s 0.1s cubic-bezier(0, 0, 0.18, 0.99) infinite alternate;
+}
+#scrollBg_02 .pofol-link__list .arrow {
+  display: inline-block;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin-left: 1rem;
+}
+#scrollBg_02 .pofol-link__list .arrow i:before, #scrollBg_02 .pofol-link__list .arrow i:after {
+  display: block;
+  position: absolute;
+  background: var(--btn-icon);
+  transition: all 0.1s;
+  background-color: #fff;
+}
+#scrollBg_02 .pofol-link__list .arrow i.arrow-hori::before, #scrollBg_02 .pofol-link__list .arrow i.arrow-hori::after {
+  left: 12px;
+  width: 1px;
+  height: 8px;
+  content: "";
+}
+#scrollBg_02 .pofol-link__list .arrow i.arrow-verti::before, #scrollBg_02 .pofol-link__list .arrow i.arrow-verti::after {
+  top: 50%;
+  width: 50%;
+  height: 1px;
+  content: "";
+  transform: translateY(-50%);
+}
+#scrollBg_02 .pofol-link__list .arrow .arrow-hori:before {
+  top: 0;
+  transform: rotate(-45deg);
+}
+#scrollBg_02 .pofol-link__list .arrow .arrow-hori:after {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#scrollBg_02 .pofol-link__list .arrow .arrow-verti:before {
+  left: 0;
+}
+#scrollBg_02 .pofol-link__list .arrow .arrow-verti:after {
+  right: 0;
 }
 #scrollBg_02 .pofol-item {
   background-repeat: no-repeat;
+  background-size: cover;
 }
 #scrollBg_02 .item01 {
-  background: url("../images/main/portfolio_img01.jpg");
+  background-image: url("../images/main/portfolio_jointree_img01.jpg");
 }
 #scrollBg_02 .item02 {
-  background: url("../images/main/portfolio_img02.jpg");
+  background-image: url("../images/main/portfolio_osang_img01.jpg");
 }
 #scrollBg_02 .item03 {
-  background: url("../images/main/portfolio_img01.jpg");
+  background-image: url("../images/main/portfolio_osang_img02.jpg");
 }
 #scrollBg_02 .item04 {
-  background: url("../images/main/portfolio_img01.jpg");
+  background-image: url("../images/main/portfolio_osang_img03.jpg");
 }
 #scrollBg_02 .item05 {
-  background: url("../images/main/portfolio_img05.jpg");
+  background-image: url("../images/main/portfolio_osang_img04.jpg");
+}
+#scrollBg_02 .item06 {
+  background-image: url("../images/main/portfolio_masstige_img01.jpg");
 }
