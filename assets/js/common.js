@@ -73,9 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
         start: 'top top',
         end: '+=1920',
         scrub: true,
-        // pin: true,
+        pin: true,
         anticipatePin: 1,
-        markers: true,
+        // markers: true,
     });
 
     /* 포트폴리오 */
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ScrollTrigger.create({
             trigger: item,
             start: 'top top',
-            // pin: true,
+            pin: true,
             pinSpacing: false,
         });
     });
