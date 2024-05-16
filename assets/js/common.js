@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         start: 'top top',
         end: '+=1920',
         scrub: true,
-        pin: true,
+        // pin: true,
         anticipatePin: 1,
         markers: true,
     });
