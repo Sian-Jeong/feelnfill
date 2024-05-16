@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ScrollTrigger.create({
             trigger: item,
             start: 'top top',
-            pin: true,
+            // pin: true,
             pinSpacing: false,
         });
     });
