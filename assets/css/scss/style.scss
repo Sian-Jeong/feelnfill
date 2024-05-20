@@ -1,5 +1,26 @@
 @import 'module.css';
 
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.typing:after {
+    display: inline-block;
+    margin-top: -1rem;
+    margin-left: 2rem;
+    vertical-align: middle;
+    content: '';
+    background: #000;
+    width: 3px;
+    height: 8rem;
+    animation: blink infinite 1s ease;
+}
+
 /* intro 영역 ------------------------------------------------ */
 .intro {
     position: relative;

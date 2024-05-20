@@ -35,57 +35,61 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // /*
-    //  *  탑버튼
-    //  */
-    // const topBtnEl = document.getElementById('topBtn');
+    /*
+     *  탑버튼
+     */
+    const topBtnEl = document.getElementById('topBtn');
 
-    // const backToTop = () => {
-    //     // Scroll | button show/hide
-    //     window.addEventListener('scroll', () => {
-    //         if (document.querySelector('html').scrollTop > 100) {
-    //             topBtnEl.style.display = 'block';
-    //         } else {
-    //             topBtnEl.style.display = 'none';
-    //         }
-    //     });
-    //     // back to top
-    //     topBtnEl.addEventListener('click', () => {
-    //         window.scrollTo({
-    //             top: 0,
-    //             left: 0,
-    //             behavior: 'smooth',
-    //         });
-    //     });
-    // };
-    // backToTop();
+    const backToTop = () => {
+        // Scroll | button show/hide
+        window.addEventListener('scroll', () => {
+            if (document.querySelector('html').scrollTop > 100) {
+                topBtnEl.style.display = 'block';
+            } else {
+                topBtnEl.style.display = 'none';
+            }
+        });
+        // back to top
+        topBtnEl.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth',
+            });
+        });
+    };
+    backToTop();
 
     /*
      *   메인 비주얼 - 타이핑 효과
      */
-    const target = document.querySelector('#typedTxt'); //html에서 dynamic 선택
+    const txtWrap = document.querySelector('.typing');
+    const txtString = 'Feel and Fill';
+    const txtSpeed = 300;
+    const txtDelay = 2000;
+    let txtIndex = 0;
+    let typeControl = true;
 
-    //함수 만들기
-    function blink() {
-        target.classList.toggle('active'); // dynamic에 active 클래스 추가<->삭제 반복
-    }
-    setInterval(blink, 500); // blink 함수를 0.5초마다 실행
-
-    //javascript 작성하기
-    const string = 'Feel and Fill'; //원하는 텍스트를 string변수 선언
-    const split = string.split(''); //string의 텍스트를 여러개의 문자열로 나눠줌
-
-    //문자열을 한개씩 나타내주는 함수 만들기
-    function dynamic(arr) {
-        if (arr.length > 0) {
-            //배열의 길이가 0보다 크면(배열에 요소가 하나라도 있다면)
-            target.textContent += arr.shift(); //dynamic에 textContent에 배열의 요소 추가
+    function typingEvent() {
+        if (typeControl === true) {
+            let txtNow = txtString[txtIndex++];
+            txtWrap.innerHTML += txtNow === '\n' ? '<br>' : txtNow;
+            console.log(txtIndex);
+            if (txtIndex >= txtString.length) {
+                txtIndex = 0;
+                typeControl = false;
+            }
+        } else {
+            clearInterval(setTyping);
             setTimeout(function () {
-                dynamic(arr);
-            }); // daynamic함수를 실행
+                txtWrap.innerHTML = '';
+                typeControl = true;
+                setTyping = setInterval(typingEvent, txtSpeed);
+            }, txtDelay);
         }
     }
-    dynamic(split); //dynamic함수에 split인자 넣어서 실행
+
+    let setTyping = setInterval(typingEvent, txtSpeed);
 
     /*
      *   Feel and Fill - 텍스트 애니메이션
