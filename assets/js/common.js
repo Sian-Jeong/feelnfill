@@ -35,30 +35,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    /*
-     *  탑버튼
-     */
-    const topBtnEl = document.getElementById('topBtn');
+    // /*
+    //  *  탑버튼
+    //  */
+    // const topBtnEl = document.getElementById('topBtn');
 
-    const backToTop = () => {
-        // Scroll | button show/hide
-        window.addEventListener('scroll', () => {
-            if (document.querySelector('html').scrollTop > 100) {
-                topBtnEl.style.display = 'block';
-            } else {
-                topBtnEl.style.display = 'none';
-            }
-        });
-        // back to top
-        topBtnEl.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth',
-            });
-        });
-    };
-    backToTop();
+    // const backToTop = () => {
+    //     // Scroll | button show/hide
+    //     window.addEventListener('scroll', () => {
+    //         if (document.querySelector('html').scrollTop > 100) {
+    //             topBtnEl.style.display = 'block';
+    //         } else {
+    //             topBtnEl.style.display = 'none';
+    //         }
+    //     });
+    //     // back to top
+    //     topBtnEl.addEventListener('click', () => {
+    //         window.scrollTo({
+    //             top: 0,
+    //             left: 0,
+    //             behavior: 'smooth',
+    //         });
+    //     });
+    // };
+    // backToTop();
 
     /*
      *   메인 비주얼 - 타이핑 효과
