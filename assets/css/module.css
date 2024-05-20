@@ -12,17 +12,13 @@ Editable : O (변수 추가 시, 하단에 추가)
   /* [Color 설정] ------------------------------*/
   --primary: #111;
   --sub: #6664f4;
-  --point-01: #27ffab
-  /* background-color */
-  --bg-basic: ;
-  --bg-nav: ;
-  --bg-box: ;
+  --point-01: #27ffab;
   /* font-color */
   --fc-main: #2647b5;
   --fc-sub: #03c4db;
   --fc-basic: #8b90a7;
   --fc-bold: #1e2029;
-  --fc-point1: #e3546a;
+  --fc-point1: #00ff5a;
   /* border-color */
   --bd-basic: #e5e5e5;
   --bd-form: ;
@@ -46,7 +42,6 @@ Editable : O (변수 추가 시, 하단에 추가)
   --k-ff3: "SCDream";
   /* 영문 종류 사용: font - 폰트명 */
   --e-ff1: "MavenPro";
-  --e-ff2: ;
   /*------------------------------------------------*/
   /* [Size 설정] -----------------------------------*/
   /* 제목 요소 */

@@ -13,19 +13,14 @@ Editable : O (변수 추가 시, 하단에 추가)
     /* [Color 설정] ------------------------------*/
     --primary: #111;
     --sub: #6664f4;
-    --point-01: #27ffab
-
-    /* background-color */
-    --bg-basic: ;
-    --bg-nav: ;
-    --bg-box: ;
+    --point-01: #27ffab;
 
     /* font-color */
     --fc-main: #2647b5;
     --fc-sub: #03c4db;
     --fc-basic: #8b90a7;
     --fc-bold: #1e2029;
-    --fc-point1: #e3546a;
+    --fc-point1: #00ff5a;
 
     /* border-color */
     --bd-basic: #e5e5e5;
@@ -53,7 +48,6 @@ Editable : O (변수 추가 시, 하단에 추가)
     --k-ff3: 'SCDream';
     /* 영문 종류 사용: font - 폰트명 */
     --e-ff1: 'MavenPro';
-    --e-ff2: ;
     /*------------------------------------------------*/
 
     /* [Size 설정] -----------------------------------*/
@@ -75,70 +69,70 @@ Editable : O (변수 추가 시, 하단에 추가)
 }
 
 @mixin bg {
-    background: rgb(35,138,215);
-    background: linear-gradient(287deg, rgba(35,138,215,1) 0%, rgba(10,201,227,1) 100%);
+    background: rgb(35, 138, 215);
+    background: linear-gradient(287deg, rgba(35, 138, 215, 1) 0%, rgba(10, 201, 227, 1) 100%);
 }
 
 // 스크린 리더 감지 , 화면 표출 제거
 @mixin blind {
-    overflow: hidden; 
-    position: absolute; 
-    width: 1px; 
-    height: 1px; 
-    margin: -1px; 
-    padding: 0; 
-    border: 0 none; 
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0 none;
     clip: rect(0, 0, 0, 0);
 }
 
 // 컨텐츠 영역 정의
 @mixin inner {
-    width: 100%;
     max-width: 144rem;
-    padding:0 2rem;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
 // 플렉스 - center
 @mixin flexCenter($x: center, $y: center, $d: row, $w: nowrap) {
     display: flex;
-    justify-content: $x;
-    align-items: $y;
     flex-direction: $d;
     flex-wrap: $w;
+    justify-content: $x;
+    align-items: $y;
 }
 
 // 아이콘
 @mixin icon($unicode, $style, $color) {
     display: inline-block;
     font-family: 'Font Awesome 6 Pro';
-    content: $unicode;
     font-weight: $style;
     color: $color;
+    content: $unicode;
 }
 
 // 말줄임
 @mixin ellipsis1 {
     display: block;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 @mixin ellipsis2 {
     display: -webkit-box;
+    overflow: hidden;
     white-space: normal;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 @mixin ellipsis3 {
     display: -webkit-box;
+    overflow: hidden;
     white-space: normal;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 // 포지션 센터
@@ -148,16 +142,16 @@ Editable : O (변수 추가 시, 하단에 추가)
     justify-content: center;
     align-items: center;
     position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-@mixin placeTop($poy:absolute) {
+@mixin placeTop($poy: absolute) {
     position: $poy;
     top: 50%;
     transform: translateY(-50%);
 }
-@mixin placeLeft($poy:absolute) {
+@mixin placeLeft($poy: absolute) {
     position: $poy;
     left: 50%;
     transform: translateX(-50%);
@@ -173,7 +167,7 @@ Editable : O (변수 추가 시, 하단에 추가)
 
 // 쉐도우
 @mixin shadow {
-    box-shadow: 0 .8rem 1rem rgba(0,0,0,0.13);
+    box-shadow: 0 0.8rem 1rem rgba(0, 0, 0, 0.13);
 }
 
 @mixin shadow1($sdw) {
@@ -182,7 +176,7 @@ Editable : O (변수 추가 시, 하단에 추가)
 }
 @mixin shadow2($sdw) {
     // x-position y-position blur spread color
-    box-shadow: .5rem .5rem 2rem 2rem rgba($sdw);
+    box-shadow: 0.5rem 0.5rem 2rem 2rem rgba($sdw);
 }
 
 // 반응형

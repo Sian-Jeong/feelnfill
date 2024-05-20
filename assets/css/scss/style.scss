@@ -1,3 +1,5 @@
+@import 'module.css';
+
 /* intro 영역 ------------------------------------------------ */
 .intro {
     position: relative;
@@ -87,6 +89,35 @@ section:not(:first-child) {
     font-size: 10rem;
 }
 /* about 영역 ------------------------------------------------ */
+@keyframes alarmHover {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(20deg);
+    }
+    20% {
+        transform: rotate(-20deg);
+    }
+    30% {
+        transform: rotate(10deg);
+    }
+    40% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(5deg);
+    }
+    60% {
+        transform: rotate(-5deg);
+    }
+    70% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
 .about {
     display: flex;
     justify-content: center;
@@ -150,29 +181,38 @@ section:not(:first-child) {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: absolute;
+        z-index: 1;
         width: 100%;
+        height: 100%;
         padding: 0 6rem;
-        ul {
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        li {
             display: flex;
-            flex-direction: column;
-            gap: 6rem;
-            li {
-                a {
-                    display: flex;
-                    align-items: center;
-                    gap: 2rem;
-                }
+            align-items: center;
+            gap: 2rem;
+            &:hover {
                 span {
-                    font-family: var(--k-ff2);
-                    font-size: 2.8rem;
-                    color: #fff;
+                    animation-name: alarmHover;
+                    animation-duration: 1s;
+                }
+                a {
+                    color: #00ff5a;
                 }
             }
-        }
-        .list__r {
+            button,
             a {
+                font-family: var(--k-ff2);
+                font-size: 2.8rem;
+                color: #fff;
+            }
+            span {
                 display: flex;
-                flex-direction: row-reverse;
+                align-items: center;
             }
         }
     }
@@ -287,47 +327,87 @@ section:not(:first-child) {
         border-radius: 6rem;
     }
 }
+
+/* optionally hide arrows until image is displayed */
+.mfp-s-loading .mfp-arrow {
+    display: none;
+}
+
 /* about 영역 // --------------------------------------------- */
 
 /* portfolio 영역 ------------------------------------------------ */
-.pofol__txt__wrap {
-    margin-top: 18rem;
-    p {
-        line-height: 1;
-        text-align: center;
-        &:nth-child(2) {
-            margin-top: 6rem;
-            font-family: var(--k-ff3);
-            font-size: 5rem;
-            font-weight: 600;
-            letter-spacing: -0.5rem;
-            color: var(--sub);
+#scrollBg_01 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 150vh;
+    .inner {
+        position: absolute;
+    }
+    .pofol__txt__wrap {
+        p {
+            line-height: 1;
+            text-align: center;
+            &:nth-child(2) {
+                margin-top: 8rem;
+                font-family: var(--k-ff3);
+                font-size: 5rem;
+                font-weight: 600;
+                letter-spacing: -0.5rem;
+                color: var(--sub);
+            }
+            &:nth-child(3) {
+                margin-top: 7rem;
+                font-family: var(--k-ff1);
+                font-size: 3rem;
+            }
         }
-        &:nth-child(3) {
-            margin-top: 5rem;
-            font-family: var(--k-ff1);
-            font-size: 3rem;
-            letter-spacing: -0.2rem;
+    }
+    .big-txt {
+        display: block;
+        position: relative;
+        &:after {
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            z-index: -1;
+            width: 70rem;
+            height: 3.3rem;
+            background: url('../images/main/underline.svg');
+            content: '';
+            transform: translateX(-50%);
+        }
+    }
+    .star--img {
+        display: inline-block;
+        position: relative;
+        width: 7.5rem;
+        height: 9.2rem;
+        &:before,
+        &:after {
+            display: inline-block;
+            position: absolute;
+            background: url('../images/main/star.svg') center/contain no-repeat;
+            content: '';
+        }
+        &:before {
+            left: 0;
+            width: 5.5rem;
+            height: 5.5rem;
+        }
+        &:after {
+            right: 0;
+            bottom: 0;
+            width: 3.6rem;
+            height: 3.6rem;
         }
     }
 }
-.pofol__img__wrap {
-}
-
-/* portfolio 영역 //----------------------------------------------- */
-
 /* parallax__cont */
 #parallax__cont {
     width: 100%;
 }
-// .parallax__item {
-//     width: 100%;
-//     height: 100vh;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     position: relative;
-// }
 .parallax__item__num {
     position: absolute;
     right: 20px;
@@ -369,49 +449,6 @@ section:not(:first-child) {
     font-size: 3vw;
     line-height: 1.4;
     word-break: keep-all;
-}
-#scrollBg_01 {
-    display: flex;
-    justify-content: center;
-    .big-txt {
-        display: block;
-        position: relative;
-        &:after {
-            position: absolute;
-            bottom: -2rem;
-            left: 50%;
-            z-index: -1;
-            width: 70rem;
-            height: 3.3rem;
-            background: url('../images/main/underline.svg');
-            content: '';
-            transform: translateX(-50%);
-        }
-    }
-    .star--img {
-        display: inline-block;
-        position: relative;
-        width: 7.5rem;
-        height: 9.2rem;
-        &:before,
-        &:after {
-            display: inline-block;
-            position: absolute;
-            background: url('../images/main/star.svg') center/contain no-repeat;
-            content: '';
-        }
-        &:before {
-            left: 0;
-            width: 5.5rem;
-            height: 5.5rem;
-        }
-        &:after {
-            right: 0;
-            bottom: 0;
-            width: 3.6rem;
-            height: 3.6rem;
-        }
-    }
 }
 
 @keyframes bounce {
@@ -476,9 +513,8 @@ section:not(:first-child) {
                     width: 3px;
                     height: 3px;
                     border-radius: 50%;
-                    background: rgba($color: #fff, $alpha: .5);
+                    background: rgba($color: #fff, $alpha: 0.5);
                     content: '';
-
                 }
             }
         }
@@ -562,18 +598,230 @@ section:not(:first-child) {
         background-image: url('../images/main/portfolio_jointree_img01.jpg');
     }
     .item02 {
-        background-image: url('../images/main/portfolio_osang_img01.jpg');
+        background-image: url('../images/main/portfolio_jointree_img02.jpg');
     }
     .item03 {
-        background-image: url('../images/main/portfolio_osang_img02.jpg');
+        background-image: url('../images/main/portfolio_osang_img01.jpg');
     }
     .item04 {
-        background-image: url('../images/main/portfolio_osang_img03.jpg');
+        background-image: url('../images/main/portfolio_osang_img02.jpg');
     }
     .item05 {
-        background-image: url('../images/main/portfolio_osang_img04.jpg');
+        background-image: url('../images/main/portfolio_osang_img03.jpg');
     }
     .item06 {
+        background-image: url('../images/main/portfolio_osang_img04.jpg');
+    }
+    .item07 {
         background-image: url('../images/main/portfolio_masstige_img01.jpg');
+    }
+}
+/* portfolio 영역 //----------------------------------------------- */
+
+/* 모달창 공통 스타일 */
+// background
+.modal {
+    display: none;
+    &.active {
+        display: block;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        .site-modal__wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100%;
+        }
+        .site-modal__inner {
+            position: relative;
+            min-width: 32rem;
+            width: 100rem;
+            height: 60rem;
+            padding: 5rem;
+            border: 1px solid rgba($color: #fff, $alpha: 0.2);
+            border-radius: 3rem;
+            background: rgba($color: #131316, $alpha: 1);
+        }
+    }
+    .modal__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba($color: #fff, $alpha: 0.3);
+    }
+    .about01-modal--tit {
+        font-family: var(--k-ff3);
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #fff;
+    }
+}
+// 닫기 - 버튼
+.modal-btn--close {
+    display: inline-block;
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    transition: 0.2s ease;
+    &:hover {
+        background-color: rgba($color: #27ffab, $alpha: 1);
+    }
+}
+// X모양 - 아이콘
+.close--i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &:before,
+    &:after {
+        display: inline-block;
+        position: absolute;
+        width: 2px;
+        height: 12px;
+        content: '';
+        background-color: #fff;
+    }
+    &:before {
+        transform: rotate(45deg);
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
+}
+/* 모달창 공통 스타일 // */
+
+/* 수상내역 swiper */
+.prize-pop__swiper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 7rem;
+    .swiper-container {
+        width: 100%;
+        height: 93%;
+    }
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+        font-size: 18px;
+        text-align: center;
+        gap: 5rem;
+        p {
+            min-width: 30rem;
+            width: 40%;
+            height: 90%;
+        }
+        img {
+            border-radius: 1rem;
+        }
+    }
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        border: 1px solid rgba($color: #fff, $alpha: 0.4);
+        background: transparent;
+        opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+        width: 40px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background-color: rgba($color: #fff, $alpha: 0.4);
+        transition: width 0.5s;
+    }
+    .swiper-control {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-pagination {
+        margin-bottom: 3rem;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #fff;
+    }
+}
+.prize__info {
+    width: 40%;
+    font-family: var(--k-ff1);
+    text-align: left;
+    color: #fff;
+    li {
+        font-size: 1.5rem;
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+/* 수행 프로젝트 내역 */
+.work-list {
+    height: 80%;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    color: #fff;
+    overflow-y: auto;
+    &--tit {
+        font-family: var(--k-ff3);
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        div {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            font-family: var(--k-ff1);
+            opacity: 0.6;
+            gap: 4rem;
+            span {
+                &:not(:last-child) {
+                    position: relative;
+                    &:after {
+                        display: inline-block;
+                        position: absolute;
+                        width: 1px;
+                        height: 80%;
+                        margin: 2px 0 0 2rem;
+                        content: '';
+                        background-color: rgba($color: #fff, $alpha: 0.2);
+                    }
+                }
+            }
+        }
+        a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 2rem;
+            border: 1px solid var(--point-01);
+            border-radius: 2rem;
+            font-family: var(--k-ff1);
+            font-weight: 700;
+            color: var(--point-01);
+            transition: 0.3s;
+            &:hover {
+                color: #1c5740;
+                background-color: var(--point-01);
+            }
+        }
     }
 }

@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="./assets/css/module.css" />
         <link rel="stylesheet" href="./assets/css/layout.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
+
         <!-- JS 연결 라이브러리 -->
         <script src="./assets/js/libs/jquery.min.js"></script>
         <!-- Swiper -->
@@ -48,6 +49,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+        <script src="https://unpkg.com/split-type"></script>
+
         <!-- JS 연결 -->
         <script src="./assets/js/common.js"></script>
     </head>
@@ -55,6 +58,297 @@
     <body>
         <!-- wrap -->
         <div id="wrap">
+            <!-- about01 popUp  -->
+            <!-- 수상내역 -->
+            <div id="prizePop" class="modal">
+                <div class="site-modal__wrap">
+                    <div class="site-modal__inner">
+                        <div class="modal__top">
+                            <span class="about01-modal--tit">수상 내역</span>
+                            <button type="button" class="modal-btn--close close-btn"><i class="close--i"></i><span class="sr-only">닫기 버튼</span></button>
+                        </div>
+                        <div class="prize-pop__swiper">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <p><img src="./assets/images/main/prize_01_thum.jpg" alt="경희의료원 심볼" /></p>
+                                        <ul class="prize__info">
+                                            <li>상훈명 : 웹어워드코리아 2022 종합의문 대상(경희의료원)</li>
+                                            <li>수상일자 : 2022.12.20</li>
+                                            <li>상훈기관 : (사)한국인터넷전문가협회</li>
+                                        </ul>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p><img src="./assets/images/main/prize_02_thum.jpg" alt="우리금융저축은행 심볼" /></p>
+                                        <ul class="prize__info">
+                                            <li>상훈명 : 웹어워드코리아 2022 종합의문 대상(경희의료원)</li>
+                                            <li>수상일자 : 2022.12.20</li>
+                                            <li>상훈기관 : (사)한국인터넷전문가협회</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="swiper-control">
+                                    <div class="swiper-pagination"></div>
+                                    <button class="swiper-button-prev"></button>
+                                    <button class="swiper-button-next"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 수상내역 // -->
+
+            <!-- 수행 프로젝트 -->
+            <div id="workPop" class="modal">
+                <div class="site-modal__wrap">
+                    <div class="site-modal__inner">
+                        <div class="modal__top">
+                            <span class="about01-modal--tit"> 주요 수행 프로젝트 내역</span>
+                            <button type="button" class="modal-btn--close close-btn"><i class="close--i"></i><span class="sr-only">닫기 버튼</span></button>
+                        </div>
+                        <div class="work-list">
+                            <ul>
+                                <li>
+                                    <span class="work-list--tit">클라우드 기반 의료데이터 활용 플랫폼(k-health)</span>
+                                    <div>
+                                        <span>수행기간 : 2024.02.19 ~ 수행 중</span>
+                                        <span>수행업무 : Publishing</span>
+                                        <span>발주처 : 광주테크노파크</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">인공지능산학연협회 반응형 웹사이트 구축</span>
+                                    <div>
+                                        <span>수행기간 : 2023.07.01 ~ 2023.08.02</span>
+                                        <span>수행업무 : UI/UX Design / Publishing</span>
+                                        <span>발주처 : 인공지능산학연협회</span>
+                                    </div>
+                                    <a href="http://aiuri.or.kr/" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">지능형 디지털 콘텐츠 제작지원 플랫폼</span>
+                                    <div>
+                                        <span>수행기간 : 2023.06.12 ~ 2024.01.03</span>
+                                        <span>수행업무 : UI/UX Design / Publishing</span>
+                                        <span>발주처 : 광주테크노파크</span>
+                                    </div>
+                                    <a href="https://gjdc.jointree.co.kr/" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">현대샵 반응형 웹사이트 리뉴얼(내 차 상품, 현대브랜드관, 자동차 용품)</span>
+                                    <div>
+                                        <span>수행기간 : 2022.07.05 ~ 2022.10.28</span>
+                                        <span>수행업무 : UI/UX Design / Publishing</span>
+                                        <span>발주처 : 오토앤</span>
+                                    </div>
+                                    <a href="https://shop2.hyundai.com/submain/carproduct" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">페퍼저축은행 반응형 웹사이트 리뉴얼 제안, 구축</span>
+                                    <div>
+                                        <span>수행기간 : 2022.05.12 ~ 2022.06.17</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 페퍼저축은행</span>
+                                    </div>
+                                    <a href="https://www.pepperbank.kr/index.pepper" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">고대의료원 사회공헌사업부 웹사이트 구축</span>
+                                    <div>
+                                        <span>수행기간 : 2022.04.04 ~ 2022.05.27</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 고대의료원</span>
+                                    </div>
+                                    <a href="https://centerforesg.kumc.or.kr/main.do" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">고대의료원 웹사이트 리뉴얼 제안 프로젝트</span>
+                                    <div>
+                                        <span>수행기간 : 2022.01.04 ~ 2022.03.17</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 고대의료원</span>
+                                    </div>
+                                    <a href="./assets/images/main/portfolio_osang_img02_web.jpg" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">우리금융저축은행 웹사이트 리뉴얼</span>
+                                    <div>
+                                        <span>수행기간 : 2021.04.05 ~ 2021.10.22</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 우리금융저축은행</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">한국임업진흥원 웹사이트 리뉴얼</span>
+                                    <div>
+                                        <span>수행기간 : 2021.03.03 ~ 2021.04.08</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 한국임업진흥원</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">경희의료원 웹사이트 리뉴얼(반응형)</span>
+                                    <div>
+                                        <span>수행기간 : 2021.03.02 ~ 2022.10.31</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 경희의료원</span>
+                                    </div>
+                                    <a href="https://www.khmc.or.kr/kr/main.do" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">법무법인 고운 웹사이트 유지보수</span>
+                                    <div>
+                                        <span>수행기간 : 2019.12.19 ~ 2019.12.27</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 법무법인 고운</span>
+                                    </div>
+                                    <a href="http://www.gounlaw.com/" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">농협로컬푸드직매장 반응형 웹사이트 구축</span>
+                                    <div>
+                                        <span>수행기간 : 2019.12.03 ~ 2020.02.13</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 농협중앙회</span>
+                                    </div>
+                                    <a href="https://nhlocalfood.com/main/main.html" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">지엔원에너지 반응형 웹사이트 구축</span>
+                                    <div>
+                                        <span>수행기간 : 2019.09.18 - 2020.02.07</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 에듀맘멘토링</span>
+                                    </div>
+                                    <a href="https://nhlocalfood.com/main/main.html" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">한국방재기술 반응형 웹사이트 구축</span>
+                                    <div>
+                                        <span>수행기간 : 2019.09.03 ~ 2019.11.29</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 한국방재기술</span>
+                                    </div>
+                                    <a href="http://www.kdpt.co.kr/main/main.html" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">숨수면클리닉 반응형 웹사이트 구축</span>
+                                    <div>
+                                        <span>수행기간 : 2019.08.27 - 2019.09.26</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : 숨수면클리닉</span>
+                                    </div>
+                                    <a href="https://www.thesuum.com/main/main.html" target="_blank">사이트 바로가기</a>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">도로오토모티브 반응형 웹사이트 구축</span>
+                                    <div>
+                                        <span>수행기간 : 2019.04.25 - 2019.08.12</span>
+                                        <span>수행업무 : UI/UX Design</span>
+                                        <span>발주처 : (주)도로오토모티브</span>
+                                    </div>
+                                    <a href="http://www.dorrautomotive.co.kr/main/main.html" target="_blank">사이트 바로가기</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 수행 프로젝트 // -->
+
+            <!-- 교육 이수 -->
+            <div id="eduPop" class="modal">
+                <div class="site-modal__wrap">
+                    <div class="site-modal__inner">
+                        <div class="modal__top">
+                            <span class="about01-modal--tit">교육이수 내역</span>
+                            <button type="button" class="modal-btn--close close-btn"><i class="close--i"></i><span class="sr-only">닫기 버튼</span></button>
+                        </div>
+                        <div class="work-list">
+                            <ul>
+                                <li>
+                                    <span class="work-list--tit">지능형 빅데이터 분석서비스 개발자과정(NCS)</span>
+                                    <div>
+                                        <span>교육기간 : 2022.12.07 - 2023.05.10</span>
+                                        <span>교육기관 : 스마트인재개발원</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">스마트웹디자인&콘텐츠개발</span>
+                                    <div>
+                                        <span>교육기간 : 2017.12.12 - 2018.06.07</span>
+                                        <span>교육기관 : 이젠아카데미컴퓨터학원</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">UI/UX기반 반응형웹디자이너</span>
+                                    <div>
+                                        <span>교육기간 : 2016.08.17 - 2017.01.11</span>
+                                        <span>교육기관 : 한국디지털기업협회강남평생교육원</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 교육 이수 // -->
+
+            <!-- 경력사항 -->
+            <div id="companyPop" class="modal">
+                <div class="site-modal__wrap">
+                    <div class="site-modal__inner">
+                        <div class="modal__top">
+                            <span class="about01-modal--tit">경력사항</span>
+                            <button type="button" class="modal-btn--close close-btn"><i class="close--i"></i><span class="sr-only">닫기 버튼</span></button>
+                        </div>
+                        <div class="work-list">
+                            <ul>
+                                <li>
+                                    <span class="work-list--tit">조인트리</span>
+                                    <div>
+                                        <span>근무기간 : 2023.06.01 ~ 재직 중</span>
+                                        <span>담당업무 : 홈페이지 구축 및 유지보수, 웹자보 제작, 웹 퍼블리싱</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">(주)오상테크놀로지</span>
+                                    <div>
+                                        <span>근무기간 : 2021.03.02 ~ 2022.10.31</span>
+                                        <span>담당업무 : 홈페이지 구축 및 유지보수, 상세페이지 및 콘텐츠 디자인, 카드뉴스 제작</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">(주)디뉴먼트</span>
+                                    <div>
+                                        <span>근무기간 : 2020.05.18 ~ 2020.07.31</span>
+                                        <span>담당업무 : 웹페이지 유지보수, 카드뉴스 제작, 콘텐츠 디자인, 상세페이지 제작</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">(주)매스티지</span>
+                                    <div>
+                                        <span>근무기간 : 2018.06.04 - 2020.02.14</span>
+                                        <span>담당업무 : 웹 사이트 구축 및 유지보수, 상세페이지 제작, 웹 퍼블리싱</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="work-list--tit">카드고릴라</span>
+                                    <div>
+                                        <span>근무기간 : 2017.05.29 - 2017.09.01</span>
+                                        <span>담당업무 : 카드뉴스 제작, 콘텐츠 디자인</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 경력사항 // -->
+
+            <!-- about01 popUp // -->
+
             <!-- header -->
             <header>
                 <div class="header__wrap">
@@ -71,7 +365,7 @@
             <!-- header // -->
 
             <!-- aside 영역 -->
-            <aside>
+            <aside class="topBtn">
                 <!-- 로켓 - svg -->
                 <svg id="aside" viewBox="0 0 11.92 16">
                     <defs>
@@ -201,54 +495,42 @@
                                 <div class="list__wrap">
                                     <ul class="list__l">
                                         <li>
-                                            <a href="javascript:void(0)">
-                                                <img src="./assets/images/main/about01_list_item01.png" alt="" />
-                                                <span>Prize</span>
-                                            </a>
+                                            <span><img src="./assets/images/main/about01_list_item01.png" alt="수상 내역" /></span>
+                                            <button id="btnPrizeOpen" class="modal-btn--open" data-modal-id="prizePop">Prize</button>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)">
-                                                <img src="./assets/images/main/about01_list_item02.png" alt="" />
-                                                <span>Works</span>
-                                            </a>
+                                            <span><img src="./assets/images/main/about01_list_item02.png" alt="프로젝트 수행 내역" /></span>
+                                            <button id="btnWorkOpen" class="modal-btn--open" data-modal-id="workPop">Works</button>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)">
-                                                <img src="./assets/images/main/about01_list_item03.png" alt="" />
-                                                <span>Education</span>
-                                            </a>
+                                            <span><img src="./assets/images/main/about01_list_item03.png" alt="교육 내역" /></span>
+                                            <button id="btnEduOpen" class="modal-btn--open" data-modal-id="eduPop">Education</button>
                                         </li>
                                     </ul>
                                     <ul class="list__r">
                                         <li>
-                                            <a href="javascript:void(0)">
-                                                <img src="./assets/images/main/about01_list_item04.png" alt="" />
-                                                <span>Company</span>
-                                            </a>
+                                            <span><img src="./assets/images/main/about01_list_item04.png" alt="근무 경력" /></span>
+                                            <button id="btnCompanyOpen" class="modal-btn--open" data-modal-id="companyPop">Company</button>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)">
-                                                <img src="./assets/images/main/about01_list_item02.png" alt="" />
-                                                <span>Works</span>
-                                            </a>
+                                            <span><img src="./assets/images/main/about01_list_item05.png" alt="KOSA 인증" /></span>
+                                            <a href="./assets/images/main/240520_KOSA.pdf" target="_blank">KOSA</a>
                                         </li>
                                         <li>
-                                            <a href="javascript:void(0)">
-                                                <img src="./assets/images/main/about01_list_item06.png" alt="" />
-                                                <span>ETC</span>
-                                            </a>
+                                            <span><img src="./assets/images/main/about01_list_item06.png" alt="그밖의 내역" /></span>
+                                            <button id="btnEtcOpen" class="modal-btn--open" data-modal-id="etcPop">ETC</button>
                                         </li>
                                     </ul>
                                 </div>
                                 <span class="character--img">
-                                    <img src="./assets/images/main/character_ani.gif" alt="" />
+                                    <img src="./assets/images/main/character_ani.gif" alt="소녀 캐릭터" />
                                 </span>
                             </div>
-                            <img src="./assets/images/main/computer_img.png" alt="" />
+                            <img src="./assets/images/main/computer_img.png" alt="컴퓨터 이미지" />
                         </div>
                     </div>
                 </section>
-                <div class="about02 about  parallax__item">
+                <div class="about02 about parallax__item">
                     <div class="about02-txt__wrap">
                         <span class="container">
                             <div class="floating item01">
@@ -260,7 +542,7 @@
                                 <span class="floating item03"></span>
                             </span>
                         </span>
-                        <div  class="inner">
+                        <div class="inner">
                             <span class="about02--txt parallax__item__text t1">
                                 <!-- Feel and Fill(white) - svg -->
                                 <svg id="txtWhite" viewBox="0 0 407.8 42.75">
@@ -326,19 +608,20 @@
 
                 <div id="parallax__cont">
                     <!-- portfolio 영역 -->
-                    <section id="scrollBg_01" class="parallax__item pofol container" data-bgcolor="#fff">
-                        <h3 class="sr-only">포트폴리오</h3>
-                        <div class="pofol__txt__wrap">
-                            <p class="big-txt">
-                                <img src="./assets/images/main/about03_big_txt.png" alt="Creative" />
-                                <i class="star--img"></i>
-                            </p>
-                            <p>: 창의적인, 창의력이 있는</p>
-                            <p>창의적인 아이디어를 바탕으로 사용자의 입장에서 생각하고 느끼며, 만들겠습니다.</p>
+                    <section id="scrollBg_01" class="parallax__item pofol container">
+                        <div class="inner">
+                            <h3 class="sr-only">포트폴리오</h3>
+                            <div class="pofol__txt__wrap">
+                                <p class="big-txt">
+                                    <img src="./assets/images/main/about03_big_txt.png" alt="Creative" />
+                                    <i class="star--img"></i>
+                                </p>
+                                <p>: 창의적인, 창의력이 있는</p>
+                                <p class="split">창의적인 아이디어를 바탕으로 <span class="bold">사용자의 입장에서 생각하고 느끼며, 만들겠습니다.</span></p>
+                            </div>
                         </div>
                     </section>
-                    <!-- portfolio 영역 // -->
-                    <section id="scrollBg_02" class="parallax__item mt-100" data-bgcolor="#000">
+                    <section id="scrollBg_02" class="parallax__item">
                         <ul class="inner">
                             <li class="item01 pofol-item">
                                 <div class="pofol-item__info">
@@ -350,7 +633,7 @@
                                         <span class="publishing">Publishing : 15%</span>
                                     </div>
                                     <div class="pofol-link__list">
-                                        <a href="https://centerforesg.kumc.or.kr/main.do" target="_blank">
+                                        <a href="https://gjdc.jointree.co.kr/" target="_blank">
                                             웹사이트 바로가기
                                             <span class="arrow">
                                                 <i class="arrow-hori"></i>
@@ -361,6 +644,26 @@
                                 </div>
                             </li>
                             <li class="item02 pofol-item">
+                                <div class="pofol-item__info">
+                                    <span class="pro-name-tit">Project Name. </span>
+                                    <p class="pro--name">인공지능산학연협회</p>
+                                    <span class="pro-client">Client : 인공지능산학연협회</span>
+                                    <div class="pofol-role">
+                                        <span class="design">UI/UX Design : 70%</span>
+                                        <span class="publishing">Publishing : 80%</span>
+                                    </div>
+                                    <div class="pofol-link__list">
+                                        <a href="http://aiuri.or.kr" target="_blank">
+                                            웹사이트 바로가기
+                                            <span class="arrow">
+                                                <i class="arrow-hori"></i>
+                                                <i class="arrow-verti"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item03 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
                                     <p class="pro--name">경희의료원 및 단위병원 반응형 웹사이트 구축</p>
@@ -386,7 +689,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item03 pofol-item">
+                            <li class="item04 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
                                     <p class="pro--name">고대의료원 웹사이트 제안 및 구축</p>
@@ -413,7 +716,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item04 pofol-item">
+                            <li class="item05 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
                                     <p class="pro--name">고대의료원 사회공헌사업부 웹사이트 구축</p>
@@ -432,7 +735,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item05 pofol-item">
+                            <li class="item06 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
                                     <p class="pro--name">페퍼저축은행 반응형 웹사이트 제안 및 구축</p>
@@ -459,7 +762,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="item06 pofol-item">
+                            <li class="item07 pofol-item">
                                 <div class="pofol-item__info">
                                     <span class="pro-name-tit">Project Name. </span>
                                     <p class="pro--name">농협로컬푸드직매장 반응형 웹사이트 구축</p>
@@ -480,13 +783,8 @@
                             </li>
                         </ul>
                     </section>
+                    <!-- portfolio 영역 // -->
                 </div>
-                <!-- 
-                <div class="controls"><a class="up disabled" data-up="0">&uarr;</a> <a class="down" data-down="2">&darr;</a></div>
-
-                <span class="note">
-                    <span class="activeSlide">1</span> / <span class="slideTotal">6</span>
-                </span> -->
             </main>
             <!-- 메인 영역 // -->
         </div>

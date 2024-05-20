@@ -11,8 +11,58 @@ Editable : O
 ------------------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', function () {
-    //javascript 작성하기
+    /*
+     *   모달창 - 공통 기능
+     */
+    var modalOpenBtns = document.querySelectorAll('.modal-btn--open');
+    var modalCloseBtns = document.querySelectorAll('.close-btn');
 
+    // 모달 열기
+    modalOpenBtns.forEach((btn) => {
+        btn.addEventListener('click', function () {
+            const modalId = btn.getAttribute('data-modal-id');
+            const modal = document.getElementById(modalId);
+            document.body.classList.add('modal--active');
+            modal.classList.add('active');
+        });
+    });
+    // 모달 닫기
+    modalCloseBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const modal = btn.closest('.modal');
+            document.body.classList.remove('modal--active');
+            modal.classList.remove('active');
+        });
+    });
+
+    /*
+     *  탑버튼
+     */
+    const topBtnEl = document.getElementById('topBtn');
+
+    const backToTop = () => {
+        // Scroll | button show/hide
+        window.addEventListener('scroll', () => {
+            if (document.querySelector('html').scrollTop > 100) {
+                topBtnEl.style.display = 'block';
+            } else {
+                topBtnEl.style.display = 'none';
+            }
+        });
+        // back to top
+        topBtnEl.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth',
+            });
+        });
+    };
+    backToTop();
+
+    /*
+     *   메인 비주얼 - 타이핑 효과
+     */
     const target = document.querySelector('#typedTxt'); //html에서 dynamic 선택
 
     //함수 만들기
@@ -38,7 +88,23 @@ document.addEventListener('DOMContentLoaded', function () {
     dynamic(split); //dynamic함수에 split인자 넣어서 실행
 
     /*
-     * 부유하는 요소 관리
+     *   Feel and Fill - 텍스트 애니메이션
+     */
+    const ani5 = gsap.timeline();
+    ani5.to('.about02 .t1', { xPercent: 100 }, 'text').to('.about02 .t2', { xPercent: -100 }, 'text');
+
+    ScrollTrigger.create({
+        animation: ani5,
+        trigger: '.about02',
+        start: 'top top',
+        end: '+=1920',
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+    });
+
+    /*
+     *   부유하는 요소 관리
      */
     // 범위 랜덤 함수(소수점 2자리까지)
     function random(min, max) {
@@ -63,22 +129,52 @@ document.addEventListener('DOMContentLoaded', function () {
     floatingObject('.floating.item02', 0.5, 50);
     floatingObject('.floating.item03', 1.5, 30);
 
-    // Feel and Fill - 텍스트 애니메이션
-    const ani5 = gsap.timeline();
-    ani5.to('.about02 .t1', { xPercent: 100 }, 'text').to('.about02 .t2', { xPercent: -100 }, 'text');
+    /*
+     *   사용자의 입장에서 생각하고 느끼면 만들겠습니다 - split 애니메이션
+     */
+    const targets = gsap.utils.toArray('.split');
 
-    ScrollTrigger.create({
-        animation: ani5,
-        trigger: '.about02',
-        start: 'top top',
-        end: '+=1920',
-        scrub: true,
-        pin: true,
-        anticipatePin: 1,
-        // markers: true,
+    targets.forEach((target) => {
+        let SplitClient = new SplitType(target, { type: 'lines, words, chars' });
+        let lines = SplitClient.lines;
+        let words = SplitClient.words;
+        let chars = SplitClient.chars;
+
+        gsap.from(chars, {
+            yPercent: 100,
+            autoAlpha: 0,
+            duration: 1,
+            ease: 'circ.out',
+            stagger: {
+                amount: 1,
+                from: 'random',
+            },
+            scrollTrigger: {
+                trigger: target,
+                start: 'top bottom',
+                end: '+=400',
+                markers: false,
+            },
+        });
     });
 
-    /* 포트폴리오 */
+    /*
+     *   수상내역 swiper
+     */
+    var swiper = new Swiper('.prize-pop__swiper .swiper-container', {
+        pagination: {
+            el: '.prize-pop__swiper .swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.prize-pop__swiper .swiper-button-next',
+            prevEl: '.prize-pop__swiper .swiper-button-prev',
+        },
+    });
+
+    /*
+     *   포트폴리오 - one page scroll
+     */
     const porfolEls = document.querySelectorAll('.pofol-item');
     // const porfolItems = porfolEls.childNodes;
 
